@@ -198,7 +198,9 @@ Recall_{i}=\frac{C_{ii}}{\sum_{j}C_{ji}}
 % This table shows the average results of 10X10-folds experiments of the basic classifiers.
 % It is impossible to calculate directly the average Precision and Recall for each class for multiclass problems in Weka Experimenter. So I have written a bash script to generate the row predictions utilizing Weka 3.9 developers version. Then I wrote another Python script to process these predicitons and calculate the precision and recall measurements as listed in this table.
 
+In all experiments, 10-folds cross validation methodology is applied for training and testing the developed classifiers. Moreover, in order to generate statistically reliable results, the 10-fold cross validation is repeated 10 times with different partitioning seeds then the average and standard deviation are calculated for each evaluation metric.
 
+In the first stage of the experiments the basic classifiers k-NN, NB, MLP, J48 and SVM are applied for predicting the sales level. The performance of some classifiers is highly affected by the initial values of their parameters. For this reason, initial experiment were conducted to tune the parameters of k-NN, SVM and MLP. For k-NN the best classification results were obtained with k=1. For SVM, a rough grid search was used, the value for the cost $C$ is set to 50 and $\gamma$  to 0.01. For MLP, the number of hidden neurons is set to (number of features+ number of output classes)/2.
 
 
 
