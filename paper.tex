@@ -1,4 +1,5 @@
-\documentclass{llncs}
+\documentclass[a4paper,10pt,onecolumn,preprint,3p]{elsarticle}
+
 \usepackage{graphics}
 \usepackage{amssymb}
 \usepackage{amsmath}
@@ -10,93 +11,170 @@
 \addtolength{\textfloatsep}{-0.5cm}
 \addtolength{\intextsep}{-0.5cm}
 
-
-%%%%%%%%%%%%%%%% Titulo %%%%%%%%%%%%%%%
-\title{Predicting Levels of Sales for Newly Published Books using Cost-Sensitive Ensemble Methods} 
-
-
-
-%%%%%%%%%%%%%%%% autores %%%%%%%%%%%%%%
-\author {}
-\institute{}
-% Antonio - Hossam add your 'official' e-mail here. ;)
-
-\date{}
+\journal{Journal of XXX}
 
 \begin{document}
+
+%\begin{frontmatter}
+
+%%%%%%%%%%%%%%%% Title %%%%%%%%%%%%%%%
+\title{Predicting Levels of Sales for Newly Published Books \\
+using Cost-Sensitive Ensemble Methods}
+
+
+%%%%%%%%%%%%%%%% Authors %%%%%%%%%%%%%%
+\author[abd]{Hossam Faris}
+\ead{hossam.faris@ju.edu.jo}
+\author[ugrtstc]{Antonio M. Mora}
+\ead{amorag@geneura.ugr.es}
+\author[ugratc]{Pedro A. Castillo}
+\ead{pacv@ugr.es}
+\author[ugratc]{J.J. Merelo}
+\ead{jmerelo@geneura.ugr.es}
+%\author[ugratc]{Pablo Garc\'{\i}a-S\'anchez}
+%\ead{pablogarcia@ugr.es}
+
+
+\address[abd]{Business Information Technology Department, King Abdullah II School for Information Technology \\
+The University of Jordan, Amman, Jordan}
+\address[ugrtstc]{Department of Signal Theory, Telematics and Communications, ETSIIT and CITIC \\
+University of Granada, Granada, Spain}
+\address[ugratc]{Department of Computer Architecture and Computer Technology, ETSIIT and CITIC \\
+University of Granada, Granada, Spain}
+
 \maketitle
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
 
 \end{abstract}
 
 
-%********************************************************************************
+\begin{keyword}
+% Antonio - to refine later
+Book sales forecasting \sep Decision-aid models \sep Feature selection \sep Classification  
+\end{keyword}
 
+%\end{frontmatter}
+
+
+
+%*******************************************************************************
+%										INTRODUCTION
+%*******************************************************************************
 \section{Introduction}
+\label{sec:intro}
 
 
-
-
+%*******************************************************************************
+%										METHODOLOGY
+%*******************************************************************************
 \section{Methodology}
+\label{sec:methodology}
 
-
-
+%*******************************************************************************
+%										MATERIALS AND METHOD
+%*******************************************************************************
 \section{Materials and methods}
-\subsection{Basic classifiers}
+\label{sec:materials}
 
+%-------------------------- BASIC CLASSIFIERS --------------------------
+\subsection{Basic classifiers}
+\label{subsec:classifiers}
 
 In order to show the need for more intelligent and complex classification models, basic and more common models are experimented and applied first. 
 \begin{itemize}
 
 \item \textbf{$k$-Nearest Neighbors ($k$-NN)}
+The kNN \cite{Aha1991,Mitchell1997} method is an instance-based classifier in 
+which unknown patterns/instances are classified by relating them to the labelled ones, using a distance measure or function, usually Euclidean or Minkowsky distances.
 
-\item \textbf{Naive Bayes classifier}
+The algorithm is based on the idea that two patterns with a high distance between them are less likely to belong to the same class than two close ones.
 
-\item \textbf{C4.5 Decision Trees}
+In the simplest approach, for every unknown instance to classify, the algorithm finds its nearest neighbour (in the patterns space), and assigns the class of that neighbour to the unknown pattern.
+However, it is more common to apply a more robust approach, in which $k$ neighbours are located, and thus, assigning the majority class of these instances to the unclassified pattern.
+
+\item \textbf{Naive Bayes classifier (NB)}
+
+This is a type of probabilistic classifier, based on the Bayes' Theorem \cite{AI-book_Bayes}, which considers a \textit{naive} (or strong) independence between the variables of the samples to be classified.
+
+It is normally used as a baseline for comparison, because it usually yields competitive results in low computational time. Moreover, naive Bayes classifier shows a very good performance when there is considered a supervised training stage.
+
+This method has a very good scalability, requiring a linear number of parameters to work, depending on the number of variables of the problem. These parameters are the mean and standard deviations of the variables of every class.
+Thus, it just evaluates closed-form expressions, not needing to iterate to refine the solutions as most of methods do.
 
 
-\item \textbf{Multilayer Perceptron neural networks (MLP)}
+\item \textbf{J48 - Decision Trees (DT)}
+
+This method is an implementation of the C4.5 classifier, which generates the so-called \textit{decision trees}. It was introduced in 1993 by Quinlan \cite{Quinlan1993} as an extension of the ID3 algorithm \cite{Mitchell1997}. 
+
+The algorithm builds a decision tree using the attributes of the input patterns as nodes and considering its values for defining a decision in that node. Thus, for each node, the best attribute for splitting the training set is selected. The criteria for choosing one attribute is based on the difference of entropy (normalized information gain) obtained by every possible division. The one which yields the highest information gain is chosen as the best. This process is repeated for the subsequent data subsets, building subtrees. Normally, the decision tree is iteratively refined (or pruned) to maximize these gains and to avoid useless subtrees.
+
+
+\item \textbf{Multilayer Perceptron Neural Network (MLP)}
+
+It is an artificial neural network generally used for classification or 
+approximation/regression problems \cite{Rosenblatt1962,Widrow1990}. It maps the input data onto an appropriate output, as a generalisation of the standard linear perceptron that uses several layers of nodes, called neurons. Each neuron consists of a linear combination of weighted inputs which is passed through a non-linear activation function to produce its output.
+
+Thus, a MLP is able to solve linearly inseparable problems \cite{SteinwenderBitzer2003}. It is normally trained using a supervised learning 
+technique called \textit{back-propagation}. This method was proposed by Werbos, Parker and Rumelhart et al. \cite{Werbos1974,Parker1985,Rumelhart1985}, and consists in updating the weights of the output layer neurons according to the obtained erroneous output. Then, the weights are updated inversely up to the input layer.
+There are normally two hidden layers, as some works \cite{Lippmann1987,Bishop1996} demonstrated to be enough to 
+create classifying regions of any kind.
+
 
 \item \textbf{Support Vector Machines (SVM)}
+SVM \cite{Cortes1995,Shevade2000} is a method which applies statistical learning theory. In classification problems, the algorithm searches for an optimal hyperplane that separates two classes, maximising the margin between them. 
+This hyperplane is defined by a subset of training set samples, called support vectors.
+
+This method is highly robust and reliable even if the space is highly dimensional and the problem is not linearly separable.
+
+SVM has been successfully applied in forecasting and classification problems \cite{Cao2003,MinSVM05,Jari2008}.
 
 
 \end{itemize}
 
 
 
-
-
-
+%-------------------------- ENSEMBLE CLASSIFIERS --------------------------
 \subsection{Ensemble classifiers}
+\label{subsec:ensembles}
 
 \begin{itemize}
 \item \textbf{Bagging}
 \item \textbf{Boosting}
 \item \textbf{Random Forest}
+This method is based on the construction of a set of decision trees using a stochastic process over the basis of C4.5 algorithm. It was proposed by Breiman
+\cite{Breiman2001} and aims to create independent and uncorrelated trees based on different and random input vectors, following the same distribution. 
+The result is the average of the generated trees during the process.
 \end{itemize}
 
 
-
+%*******************************************************************************
+%										COST SENSITIVE CLASSIFICATION
+%*******************************************************************************
 \section{Cost sensitive classification}
+\label{sec:cost_sensitive_classification}
 
+%------------------------ COST SENSITIVE LEARNING ------------------------
 \subsection{Cost sensitive learning}
+\label{subsec:cost_learning}
+
+%------------------------ COST SENSITIVE CLASSIFICATION ------------------------
 \subsection{Cost sensitive classification}
+\label{subsec:cost_classification}
 
 
+%*******************************************************************************
+%										DATASET
+%*******************************************************************************
 \section{Dataset description}
+\label{sec:dataset}
 
 
+The obtained dataset contains collected information about 6083 different books produced by 209 publishers. Each book or pattern in the dataset is represented by 10 features as shown in Table \ref{tabla:params_pre_sales}. 
 
 
-
-
-
-The obtained dataset contains collected information about 6083 different books produced by 209 publishers. Each book in the dataset is represented by 10 feature as shown in Table \ref{tabla:params_pre_sales}. 
-
-
-\begin{table}
+\begin{table*}
 \caption{Pre-sales features and Sales level(Output class). } 
 \label{tabla:params_pre_sales}
 \begin{center}
@@ -119,7 +197,7 @@ No. & Feature Name & Variable & Type & In/Out\\
 \hline 
 \end{tabular}
 \end{center}
-\end{table}
+\end{table*}
 
 
 The output variable which is the total sales is a categorical variable the represent the level of the quantity sold of a given book. Four categories are used to represent the total sales level: Low (L), Medium (M), High (H) and Very High (VH). Table \ref{table:freq} shows the ranges of total sales that correspond to each category along with the number of sold books that fall in. 
@@ -147,10 +225,13 @@ Very High & $>$1000 & 780 & 12.8\%\tabularnewline
 \end{table*}
 
 
-
+%*******************************************************************************
+%										EVALUATION MEASUREMENTS
+%*******************************************************************************
 \section{Evaluation measurements}
+\label{sec:eval_measures}
 
-To evaluate the developed classification models, first, we refer the confusion matrix shown in Table \ref{fig:confusionmatrix} which is considered as a basic source for evaluating any binary classification model. In our case which is a multiclass prediction problem, this matrix can be expanded with a row and column for each class to evaluate the multiclass classfication models. Three measurements are used to evaluate the applied classifiers: accuracy rate, precision and recall. The accuracy rate simply measures the total number of correctly classified instances over the total number of instances $N$ as shown in Equation \ref{equation:acc}.
+To evaluate the developed classification models, first, we refer the confusion matrix shown in Table \ref{fig:confusionmatrix} which is considered as a basic source for evaluating any binary classification model. In our case which is a multiclass prediction problem, this matrix can be expanded with a row and column for each class to evaluate the multiclass classification models. Three measurements are used to evaluate the applied classifiers: accuracy rate, precision and recall. The accuracy rate simply measures the total number of correctly classified instances over the total number of instances $N$ as shown in Equation \ref{equation:acc}.
 
 Precision is the ratio of the correctly classified instances as $i$ to the number of instances classified as $i$. On the other side, recall is the ratio of the correctly classified instances as $i$ to the number of actual $i$ instances . Precision and recall are given in Equation \ref{equation:precision} and \ref{equation:recall}, respectively.
 
@@ -191,8 +272,11 @@ Recall_{i}=\frac{C_{ii}}{\sum_{j}C_{ji}}
 
 
 
-
+%*******************************************************************************
+%										EXPERIMENTS AND RESULTS
+%*******************************************************************************
 \section{Experiments and results}
+\label{sec:experiments_results}
 
 %This is just the first step of the experiments
 % This table shows the average results of 10X10-folds experiments of the basic classifiers.
@@ -238,9 +322,11 @@ $Precision_{VH}$  & 0.79$\pm$0.0071 & 0.81$\pm$0.0032 & 0.74$\pm$0.0072 & 0.77$\
 \end{tabular}
 \end{table}
 
-%********************************************************************************
+%*******************************************************************************
+%										CONCLUSIONS AND FUTURE WORK
+%*******************************************************************************
 \section{Conclusions and Future Work}
-\label{sec:conclusionsAndFutureWork}
+\label{sec:conclusions_future_work}
 
 
 
@@ -249,15 +335,14 @@ $Precision_{VH}$  & 0.79$\pm$0.0071 & 0.81$\pm$0.0032 & 0.74$\pm$0.0072 & 0.77$\
 %********************************************************************************
 \section*{Acknowledgements}
 
+This work has been supported in part by projects PreTEL (PRM Consultores - Trevenque S.L.), TIN2014-56494-C4-3-P and TEC2015-68752 (Spanish Ministry of Economy and Competitiveness and FEDER), PRY142/14 (Fundaci{\'o}n P{\'u}blica Andaluza Centro de Estudios Andaluces en la IX Convocatoria de Proyectos de Investigaci{\'o}n), and PROY-PP2015-06 (Plan Propio 2015, funded by the University of Granada, Spain).
+
 
 
 %********************************************************************************
-\bibliographystyle{plain}
+\bibliographystyle{elsarticle-num}
 \bibliography{refs}
 
 %----------------------------------------------------------------------
 
 \end{document}
-%%% Local Variables:
-%%% ispell-local-dictionary: "english"
-%%% End:
