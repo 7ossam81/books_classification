@@ -1,6 +1,6 @@
 \documentclass[a4paper,10pt,onecolumn,preprint,3p]{elsarticle}
 
-\usepackage{graphics}
+\usepackage{graphics,subfigure}
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage[dvips]{epsfig}
@@ -71,6 +71,14 @@ Book sales forecasting \sep Decision-aid models \sep Feature selection \sep Clas
 %*******************************************************************************
 \section{Methodology}
 \label{sec:methodology}
+
+\begin{figure*}[ht]
+\begin{center}
+\includegraphics[scale=0.40]{books_methodology}
+\end{center}
+\caption{Proposed methodology.}
+\label{fig:count}
+\end{figure*}
 
 %*******************************************************************************
 %										MATERIALS AND METHOD
@@ -321,6 +329,38 @@ $Precision_{VH}$  & 0.79$\pm$0.0071 & 0.81$\pm$0.0032 & 0.74$\pm$0.0072 & 0.77$\
 \hline 
 \end{tabular}
 \end{table}
+
+
+
+
+
+
+
+\begin{figure*}[ht]
+\begin{center}
+\includegraphics[scale=0.42]{RF}
+\end{center}
+\caption{Performance of RF classifier over different number of trees.}
+\label{fig:count}
+\end{figure*}
+
+\begin{figure*}[ht]
+\begin{center}
+\includegraphics[scale=0.46]{Bagging}
+\end{center}
+\caption{Performance of Bagging classifier over different number of iterations.}
+\label{fig:count}
+\end{figure*}
+
+\begin{figure*}[ht]
+\begin{center}
+\includegraphics[scale=0.46]{Adaboost}
+\end{center}
+\caption{Performance of Adaboost classifier over different number of iterations.}
+\label{fig:count}
+\end{figure*}
+
+
 
 %*******************************************************************************
 %										CONCLUSIONS AND FUTURE WORK
