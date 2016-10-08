@@ -295,7 +295,7 @@ In all experiments, 10-folds cross validation methodology is applied for trainin
 In the first stage of the experiments the basic classifiers k-NN, NB, MLP, J48 and SVM are applied for predicting the sales level. The performance of some classifiers is highly affected by the initial values of their parameters. For this reason, initial experiment were conducted to tune the parameters of k-NN, SVM and MLP. For k-NN the best classification results were obtained with k=1. For SVM, a rough grid search was used, the value for the cost $C$ is set to 50 and $\gamma$  to 0.01. For MLP, the number of hidden neurons is set to (number of features+ number of output classes)/2.
 
 
-
+The developed classifiers are assessed by measuring their accuracy and the precision and recall of each class label. Evaluation measures for all classifiers are shown in Table \ref{table:basic_classifiers}. It can be noticed that all classifiers have obtained very close accuracy ratios with a slight advantage for the MLP network with 71\% accuracy. In general, accuracy rates don't give an insight on how the classifier performes regarding each class. Therefore, precision and recall rates are examined. \\
 
 \begin{table}
 \caption{Classification results using basic classifiers (without print-run)}
@@ -328,6 +328,7 @@ $Recall_{VH}$  & 0.6$\pm$0.0073 & 0.53$\pm$0.003 & 0.72$\pm$0.0086 & 0.68$\pm$0.
 $Precision_{VH}$  & 0.79$\pm$0.0071 & 0.81$\pm$0.0032 & 0.74$\pm$0.0072 & 0.77$\pm$0.0212 & 0.78$\pm$0.0028\tabularnewline
 \hline 
 \end{tabular}
+\label{table:basic_classifiers}
 \end{table}
 
 
@@ -337,30 +338,54 @@ $Precision_{VH}$  & 0.79$\pm$0.0071 & 0.81$\pm$0.0032 & 0.74$\pm$0.0072 & 0.77$\
 
 
 \begin{figure*}[ht]
-\begin{center}
-\includegraphics[scale=0.42]{RF}
-\end{center}
+
+\centerline{\includegraphics[scale=0.42]{RF}}
+
 \caption{Performance of RF classifier over different number of trees.}
 \label{fig:count}
 \end{figure*}
 
 \begin{figure*}[ht]
-\begin{center}
-\includegraphics[scale=0.46]{Bagging}
-\end{center}
+\centerline{
+\includegraphics[scale=0.46]{Bagging}}
+
 \caption{Performance of Bagging classifier over different number of iterations.}
 \label{fig:count}
 \end{figure*}
 
 \begin{figure*}[ht]
-\begin{center}
+\centerline{
 \includegraphics[scale=0.46]{Adaboost}
-\end{center}
+}
 \caption{Performance of Adaboost classifier over different number of iterations.}
 \label{fig:count}
 \end{figure*}
 
 
+\begin{table}
+\caption{Classification results using ensemble classifiers (RF, AdaBoost and Bagging)}
+\centering{}%
+\begin{tabular}{|c|c|c|c|}
+\hline 
+ & RF  &  AdaBoost &  Bagging \tabularnewline
+\hline 
+ \hline $Accuracy$ & 0.741 $\pm$ 0.002 & 0.743 $\pm$ 0.0023 & 0.735 $\pm$ 0.0022 \tabularnewline 
+ \hline 
+ \hline $Recall_{L}$ & 0.796 $\pm$ 0.0038 & 0.793 $\pm$ 0.0038 & 0.792 $\pm$ 0.0048 \tabularnewline 
+ \hline $Precision_{L}$ & 0.823 $\pm$ 0.0035 & 0.827 $\pm$ 0.0032 & 0.814 $\pm$ 0.0043 \tabularnewline 
+ \hline 
+ \hline $Recall_{M}$ & 0.748 $\pm$ 0.0033 & 0.75 $\pm$ 0.0029 & 0.738 $\pm$ 0.0038 \tabularnewline 
+ \hline $Precision_{M}$ & 0.712 $\pm$ 0.0026 & 0.716 $\pm$ 0.0032 & 0.707 $\pm$ 0.004 \tabularnewline 
+ \hline 
+ \hline $Recall_{H}$ & 0.68 $\pm$ 0.0073 & 0.684 $\pm$ 0.0051 & 0.667 $\pm$ 0.0065 \tabularnewline 
+ \hline $Precision_{H}$ & 0.666 $\pm$ 0.0037 & 0.667 $\pm$ 0.0029 & 0.663 $\pm$ 0.004 \tabularnewline 
+ \hline 
+ \hline $Recall_{VH}$ & 0.723 $\pm$ 0.0054 & 0.727 $\pm$ 0.0041 & 0.731 $\pm$ 0.0057 \tabularnewline 
+ \hline $Precision_{VH}$ & 0.816 $\pm$ 0.0051 & 0.808 $\pm$ 0.0056 & 0.793 $\pm$ 0.0069 \tabularnewline 
+\hline 
+\end{tabular}
+\label{table:basic_classifiers}
+\end{table}
 
 %*******************************************************************************
 %										CONCLUSIONS AND FUTURE WORK
