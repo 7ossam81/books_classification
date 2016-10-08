@@ -77,7 +77,7 @@ Book sales forecasting \sep Decision-aid models \sep Feature selection \sep Clas
 \includegraphics[scale=0.40]{books_methodology}
 \end{center}
 \caption{Proposed methodology.}
-\label{fig:count}
+\label{fig:methodology}
 \end{figure*}
 
 %*******************************************************************************
@@ -210,7 +210,7 @@ No. & Feature Name & Variable & Type & In/Out\\
 
 The output variable which is the total sales is a categorical variable the represent the level of the quantity sold of a given book. Four categories are used to represent the total sales level: Low (L), Medium (M), High (H) and Very High (VH). Table \ref{table:freq} shows the ranges of total sales that correspond to each category along with the number of sold books that fall in. 
 
-Table \ref{table:freq} and Figure \ref{fig:count} reveal more information about the nature of the dataset. We can notice that most of 77\% of the boos investigated are categorized as VL and L with limited number of sales. On the other side, the books that achieved more than 2000 sold copies are just around 4\%. This makes the problem of identifying those two categories much harder. The new categorical feature is used to replace the old numerical Total Sales feature in the GP classification case.
+Table \ref{table:freq} and Figure \ref{fig:count} reveal more information about the nature of the dataset. We can notice that most of 77\% of the books investigated are categorized as VL and L with limited number of sales. On the other side, the books that achieved more than 2000 sold copies are just around 4\%. This makes the problem of identifying those two categories much harder. The new categorical feature is used to replace the old numerical Total Sales feature in the GP classification case.
 
 \begin{table*}[ht]
 \caption{Categories corresponding to total sales }
@@ -274,7 +274,7 @@ Recall_{i}=\frac{C_{ii}}{\sum_{j}C_{ji}}
 \includegraphics[scale=0.40]{Confusion-matrix-multiclass-default}
 \end{center}
 \caption{Default cost matrix.}
-\label{fig:count}
+\label{fig:Default_cost_matrix}
 \end{figure*}
 
 
@@ -384,7 +384,7 @@ $Precision_{VH}$  & 0.79$\pm$0.0071 & 0.81$\pm$0.0032 & 0.74$\pm$0.0072 & 0.77$\
  \hline $Precision_{VH}$ & 0.816 $\pm$ 0.0051 & 0.808 $\pm$ 0.0056 & 0.793 $\pm$ 0.0069 \tabularnewline 
 \hline 
 \end{tabular}
-\label{table:basic_classifiers}
+\label{table:ensemble_classifiers}
 \end{table}
 
 %*******************************************************************************
