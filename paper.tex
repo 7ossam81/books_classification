@@ -209,11 +209,18 @@ No. & Feature Name & Variable & Type & In/Out\\
 \end{table*}
 
 
-The output variable which is the total sales is a categorical variable the represent the level of the quantity sold of a given book. Four categories are used to represent the total sales level: Low (L), Medium (M), High (H) and Very High (VH). Table \ref{table:freq} shows the ranges of total sales that correspond to each category along with the number of sold books that fall in. 
+The output variable which is the total sales is a categorical variable the represent the level of the quantity sold of a given book. Four categories are used to represent the total sales level: Low (L), Medium (M), High (H) and Very High (VH). Table \ref{table:freq} shows the ranges of total sales that correspond to each category along with the number of sold books that fall in.
+% Antonio - We must explain how did we obtain or 'define' these categories... an expert's opinion or so. ;D
+ 
 
 Table \ref{table:freq} and Figure \ref{fig:count} 
-% Antonio - Not sure which Figure did you refer to... Maybe should they be Tables 'params_pre-sales' and 'freq'? :D
-reveal more information about the nature of the dataset. We can notice that most of 77\% of the books investigated are categorized as VL and L with limited number of sales. On the other side, the books that achieved more than 2000 sold copies are just around 4\%. This makes the problem of identifying those two categories much harder. The new categorical feature is used to replace the old numerical Total Sales feature in the GP classification case.
+% Antonio - Not sure which Figure did you refer to... Maybe should they be Tables 'params_pre-sales' and 'freq'?
+reveal more information about the nature of the dataset. We can notice that most of 77\% of the books investigated are categorized as VL 
+% Antonio - there is not a VL category, is there? I guess you mean Low and Medium, right?
+and L with limited number of sales. On the other hand, the books that achieved more than 2000 sold copies are just around 4\%. This makes the problem of identifying those two categories much harder. 
+
+% Antonio - I think we must explain better about the new categorical feature and the use of GP (why GP, its advantages, and so on). I mean, the following sentence was a bit disconnected from the previous. ;)
+The new categorical feature is used to replace the old numerical Total Sales feature in the GP classification case.
 
 \begin{table*}[ht]
 \caption{Categories corresponding to total sales }
