@@ -79,6 +79,7 @@ Book sales forecasting \sep Decision-aid models \sep Feature selection \sep Clas
 \caption{Proposed methodology.}
 \label{fig:methodology}
 \end{figure*}
+% Antonio - I like this figure, however, it seems on it that the results of the basic classifier are used as 'starting point' of the ensembles, and the results of these methods are used in the cost sensitive classification... is this correct? Otherwise, maybe we should change the design of the figure. ;D
 
 %*******************************************************************************
 %										MATERIALS AND METHOD
@@ -210,7 +211,9 @@ No. & Feature Name & Variable & Type & In/Out\\
 
 The output variable which is the total sales is a categorical variable the represent the level of the quantity sold of a given book. Four categories are used to represent the total sales level: Low (L), Medium (M), High (H) and Very High (VH). Table \ref{table:freq} shows the ranges of total sales that correspond to each category along with the number of sold books that fall in. 
 
-Table \ref{table:freq} and Figure \ref{fig:count} reveal more information about the nature of the dataset. We can notice that most of 77\% of the books investigated are categorized as VL and L with limited number of sales. On the other side, the books that achieved more than 2000 sold copies are just around 4\%. This makes the problem of identifying those two categories much harder. The new categorical feature is used to replace the old numerical Total Sales feature in the GP classification case.
+Table \ref{table:freq} and Figure \ref{fig:count} 
+% Antonio - Not sure which Figure did you refer to... Maybe should they be Tables 'params_pre-sales' and 'freq'? :D
+reveal more information about the nature of the dataset. We can notice that most of 77\% of the books investigated are categorized as VL and L with limited number of sales. On the other side, the books that achieved more than 2000 sold copies are just around 4\%. This makes the problem of identifying those two categories much harder. The new categorical feature is used to replace the old numerical Total Sales feature in the GP classification case.
 
 \begin{table*}[ht]
 \caption{Categories corresponding to total sales }
@@ -241,7 +244,7 @@ Very High & $>$1000 & 780 & 12.8\%\tabularnewline
 
 To evaluate the developed classification models, first, we refer the confusion matrix shown in Table \ref{fig:confusionmatrix} which is considered as a basic source for evaluating any binary classification model. In our case which is a multiclass prediction problem, this matrix can be expanded with a row and column for each class to evaluate the multiclass classification models. Three measurements are used to evaluate the applied classifiers: accuracy rate, precision and recall. The accuracy rate simply measures the total number of correctly classified instances over the total number of instances $N$ as shown in Equation \ref{equation:acc}.
 
-Precision is the ratio of the correctly classified instances as $i$ to the number of instances classified as $i$. On the other side, recall is the ratio of the correctly classified instances as $i$ to the number of actual $i$ instances . Precision and recall are given in Equation \ref{equation:precision} and \ref{equation:recall}, respectively.
+Precision is the ratio of the correctly classified instances as $i$ to the number of instances classified as $i$. On the other side, recall is the ratio of the correctly classified instances as $i$ to the number of actual $i$ instances. Precision and recall are given in Equation \ref{equation:precision} and \ref{equation:recall}, respectively.
 
 
 \begin{figure*}[ht]
@@ -295,7 +298,7 @@ In all experiments, 10-folds cross validation methodology is applied for trainin
 In the first stage of the experiments the basic classifiers k-NN, NB, MLP, J48 and SVM are applied for predicting the sales level. The performance of some classifiers is highly affected by the initial values of their parameters. For this reason, initial experiment were conducted to tune the parameters of k-NN, SVM and MLP. For k-NN the best classification results were obtained with k=1. For SVM, a rough grid search was used, the value for the cost $C$ is set to 50 and $\gamma$  to 0.01. For MLP, the number of hidden neurons is set to (number of features+ number of output classes)/2.
 
 
-The developed classifiers are assessed by measuring their accuracy and the precision and recall of each class label. Evaluation measures for all classifiers are shown in Table \ref{table:basic_classifiers}. It can be noticed that all classifiers have obtained very close accuracy ratios with a slight advantage for the MLP network with 71\% accuracy. In general, accuracy rates don't give an insight on how the classifier performes regarding each class. Therefore, precision and recall rates are examined. \\
+The developed classifiers are assessed by measuring their accuracy and the precision and recall of each class label. Evaluation measures for all classifiers are shown in Table \ref{table:basic_classifiers}. It can be noticed that all classifiers have obtained very close accuracy ratios with a slight advantage for the MLP network with 71\% accuracy. In general, accuracy rates don't give an insight on how the classifier performs regarding each class. Therefore, precision and recall rates are examined. \\
 
 \begin{table}
 \caption{Classification results using basic classifiers (without print-run)}
@@ -339,7 +342,7 @@ $Precision_{VH}$  & 0.79$\pm$0.0071 & 0.81$\pm$0.0032 & 0.74$\pm$0.0072 & 0.77$\
 
 \begin{figure*}[ht]
 
-\centerline{\includegraphics[scale=0.42]{RF}}
+\centerline{\includegraphics[scale=0.46]{RF}}
 
 \caption{Performance of RF classifier over different number of trees.}
 \label{fig:PerformanceRF}
@@ -360,6 +363,8 @@ $Precision_{VH}$  & 0.79$\pm$0.0071 & 0.81$\pm$0.0032 & 0.74$\pm$0.0072 & 0.77$\
 \caption{Performance of Adaboost classifier over different number of iterations.}
 \label{fig:PerformanceAdaboost}
 \end{figure*}
+
+% Antonio - Just a comment about colors of the graphs. If one prints them in grey scale it cannot be distinguished for instance H and VH lines. ;)
 
 
 \begin{table}
@@ -400,7 +405,7 @@ $Precision_{VH}$  & 0.79$\pm$0.0071 & 0.81$\pm$0.0032 & 0.74$\pm$0.0072 & 0.77$\
 %********************************************************************************
 \section*{Acknowledgements}
 
-This work has been supported in part by projects PreTEL (PRM Consultores - Trevenque S.L.), TIN2014-56494-C4-3-P and TEC2015-68752 (Spanish Ministry of Economy and Competitiveness and FEDER), PRY142/14 (Fundaci{\'o}n P{\'u}blica Andaluza Centro de Estudios Andaluces en la IX Convocatoria de Proyectos de Investigaci{\'o}n), and PROY-PP2015-06 (Plan Propio 2015, funded by the University of Granada, Spain).
+This work has been supported in part by projects PreTEL (PRM Consultores - Trevenque S.L.), TIN2014-56494-C4-3-P and TEC2015-68752 (Spanish Ministry of Economy and Competitiveness and FEDER), and PROY-PP2015-06 (Plan Propio 2015, funded by the University of Granada, Spain).
 
 
 
