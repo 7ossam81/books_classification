@@ -80,6 +80,7 @@ Book sales forecasting \sep Decision-aid models \sep Feature selection \sep Clas
 \label{fig:methodology}
 \end{figure*}
 % Antonio - I like this figure, however, it seems on it that the results of the basic classifier are used as 'starting point' of the ensembles, and the results of these methods are used in the cost sensitive classification... is this correct? Otherwise, maybe we should change the design of the figure. ;D
+% Hossam: I have changed the figure as Antonio suggested ;)
 
 %*******************************************************************************
 %										MATERIALS AND METHOD
@@ -213,14 +214,11 @@ The output variable which is the total sales is a categorical variable the repre
 % Antonio - We must explain how did we obtain or 'define' these categories... an expert's opinion or so. ;D
  
 
-Table \ref{table:freq} and Figure \ref{fig:count} 
-% Antonio - Not sure which Figure did you refer to... Maybe should they be Tables 'params_pre-sales' and 'freq'?
-reveal more information about the nature of the dataset. We can notice that most of 77\% of the books investigated are categorized as VL 
-% Antonio - there is not a VL category, is there? I guess you mean Low and Medium, right?
-and L with limited number of sales. On the other hand, the books that achieved more than 2000 sold copies are just around 4\%. This makes the problem of identifying those two categories much harder. 
+Table \ref{table:freq} reveal more information about the nature of the dataset. We can notice that most of the investigated books are categorized as Low and Medium levels forming 26.8\% and 36.4\% of the dataset, respectively. High volumes of sold books that range from 300 up to 1000 are categorized as High volume of sales and form 24\% of the dataset. On the other hand, books that achieved more than 1000 sold copies are categorized as Very High and they form around 12.8\% of the dataset. Our focus in this study is to identify the more profitable categories which are High and Very High. However, since the latter category is much smaller than the other ones, we can describe our dataset as imbalanced dataset which makes the problem of identifying this category harder and more challenging.
 
-% Antonio - I think we must explain better about the new categorical feature and the use of GP (why GP, its advantages, and so on). I mean, the following sentence was a bit disconnected from the previous. ;)
-The new categorical feature is used to replace the old numerical Total Sales feature in the GP classification case.
+
+
+
 
 \begin{table*}[ht]
 \caption{Categories corresponding to total sales }
@@ -372,6 +370,7 @@ $Precision_{VH}$  & 0.79$\pm$0.0071 & 0.81$\pm$0.0032 & 0.74$\pm$0.0072 & 0.77$\
 \end{figure*}
 
 % Antonio - Just a comment about colors of the graphs. If one prints them in grey scale it cannot be distinguished for instance H and VH lines. ;)
+% Hossam- I have updated all figure as you Antonio suggested and I have added also Low and Medium results to the figures.
 
 
 \begin{table}
