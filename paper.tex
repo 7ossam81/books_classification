@@ -150,11 +150,12 @@ SVM has been successfully applied in forecasting and classification problems \ci
 \label{subsec:ensembles}
 
 \begin{itemize}
-\item \textbf{Bagging}
+\item \textbf{Bagging} Bagging which is called also Bootstrap aggregating is an ensemble meta-algorithm introduced by \citet{B1996}. Bagging works by training base classifiers (usually decision tree classifiers) based on generated new datasets from the original training dataset. The new generated datasets are drawn randomly with replacement in a size almost equal to the original dataset. The final classifier's output is based on aggregating the classifiers by taking a majority or weighted vote.
+
+
 \item \textbf{Boosting}
 \item \textbf{Random Forest}
-This method is based on the construction of a set of decision trees using a stochastic process over the basis of C4.5 algorithm. It was proposed by Breiman
-\cite{Breiman2001} and aims to create independent and uncorrelated trees based on different and random input vectors, following the same distribution. 
+This method is based on the construction of a set of decision trees using a stochastic process over the basis of C4.5 algorithm. It was proposed by Breiman in \cite{Breiman2001} and aims to create independent and uncorrelated trees based on different and random input vectors, following the same distribution. 
 The result is the average of the generated trees during the process.
 \end{itemize}
 
