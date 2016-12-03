@@ -47,6 +47,16 @@ University of Granada, Granada, Spain}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
 
+An important task when publishing a new book is determining an adequate number 
+of copies to be printed, but not a excesive number, as the unsold volumes will 
+lead to losses.
+In this paper, we face the problem of predicting total sales using cost-sensitive
+ensemble methods, that can be used as decision-aid tools for publishers, which 
+can provide a reliable guidance on the decision process of publishing a book. 
+A real dataset including the complete sales data for books published in Spain 
+across several years has been used to create forecasting models.
+Results show that \emph{EXPLAIN THE RESULTS OBTAINED}.
+
 \end{abstract}
 
 
@@ -155,7 +165,7 @@ Bagging which is called also Bootstrap aggregating is an ensemble meta-algorithm
 
 
 \item \textbf{Boosting} 
-Boosting is an ensemble classification algorithm which was first proposed by \citet{schapire1990strength} in \citet{schapire1990strength}. Boosting is based on the idea that a set of weak classifiers can create a stronger one. In this work we adopt a powerful a variation of boosting called Adaptive Boosting or "Adaboost" for short \cite{FS1997}. Adaboost operates on a training dataset ${(x_{1},y_{1}),...,(x_{m},y_{m})}$ where each $x_{i}$ is a set of inputs belongs to some domain $X$ and each $y_{i}$ belongs to some label $Y$ assuming $Y$ is a binary class set $\{+1,-1\}$. 
+Boosting is an ensemble classification algorithm which was first proposed by \citet{schapire1990strength} in \citet{schapire1990strength}. Boosting is based on the idea that a set of weak classifiers can create a stronger one. In this work we adopt a powerful a variation of boosting called Adaptive Boosting or ''Adaboost'' for short \cite{FS1997}. Adaboost operates on a training dataset ${(x_{1},y_{1}),...,(x_{m},y_{m})}$ where each $x_{i}$ is a set of inputs belongs to some domain $X$ and each $y_{i}$ belongs to some label $Y$ assuming $Y$ is a binary class set $\{+1,-1\}$. 
 
 
 During the learning process, Adaboost modifies the dataset by weighting its samples. These weights are updated every time a new classifier is trained to increase the focus on the difficult data instances. Consequently, the final generated classifier is a weighted combination of all trained base classifiers. According to many previous works, Adaboost is resistant to overfitting and it can outperform many other state-of-the-art classification techniques.
