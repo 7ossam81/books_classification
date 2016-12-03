@@ -315,6 +315,8 @@ In the first stage of the experiments the basic classifiers k-NN, NB, MLP, J48 a
 
 The developed classifiers are assessed by measuring their accuracy and the precision and recall of each class label. Evaluation measures for all classifiers are shown in Table \ref{table:basic_classifiers}. It can be noticed that all classifiers have obtained very close accuracy ratios with a slight advantage for the MLP network with 71\% accuracy. In general, accuracy rates don't give an insight on how the classifier performs regarding each class. Therefore, precision and recall rates are examined for each class. Precision and recall values in Table \ref{table:basic_classifiers} show that J48 classifier achieved the highest recall value of 72\% for (VH) class with 74\% precision. The second best classifier for this important class is MLP with 68\% recall and 77\% precision. Having a look at the second important class which is (H), we can see that MLP has the highest recall with 65\% and a precision of 62\%. J48 comes second for the (H) class with a slight decrease in the recall value.
 
+
+
 \begin{table}
 \caption{Classification results using basic classifiers (without print-run)}
 \centering{}%
@@ -350,12 +352,12 @@ $Precision_{VH}$  & 0.79$\pm$0.0071 & 0.81$\pm$0.0032 & 0.74$\pm$0.0072 & 0.77$\
 \end{table}
 
 
+In the next stage of the experiments, the ensemble classifiers (i.e. RF, Bagging and AdaBoost) are applied and evaluated. For Bagging and AdaBoost, the base classifier is selected to be the J48 decision tree algorithm. This selection is for three reasons: first, the J48 algorithm achieved very competitive evaluation results in the previous phase. Second, J48 is much faster as a learning algorithm compared to the MLP network which was the second candidate. Third, tree induction algorithms are good candidates as base classifiers in bagging and boosting because support diversity among the learners. It is well known that tree induction algorithms are relatively unstable (i.e. weak) base learners, meaning that small changes in the training data lead to big changes in the developed models. 
 
 
 
 
-
-\begin{figure*}[ht]
+\begin{figure*}
 
 \centerline{\includegraphics[scale=0.46]{RF}}
 
@@ -363,7 +365,7 @@ $Precision_{VH}$  & 0.79$\pm$0.0071 & 0.81$\pm$0.0032 & 0.74$\pm$0.0072 & 0.77$\
 \label{fig:PerformanceRF}
 \end{figure*}
 
-\begin{figure*}[ht]
+\begin{figure*}
 \centerline{
 \includegraphics[scale=0.46]{Bagging}}
 
@@ -371,7 +373,7 @@ $Precision_{VH}$  & 0.79$\pm$0.0071 & 0.81$\pm$0.0032 & 0.74$\pm$0.0072 & 0.77$\
 \label{fig:PerformanceBagging}
 \end{figure*}
 
-\begin{figure*}[ht]
+\begin{figure*}
 \centerline{
 \includegraphics[scale=0.46]{Adaboost}
 }
