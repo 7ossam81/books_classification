@@ -75,10 +75,52 @@ Book sales forecasting \sep Decision-aid models \sep Feature selection \sep Clas
 \section{Introduction}
 \label{sec:intro}
 
-contents
+Determining the number of copies of a new book should the publisher print, the 
+so called {\em print run}, for delivery to bookstores is a challenging problem.
+Thus, it is extremely important to develop an accurate predictive method which 
+could forecast the future sales a new book will achieve, in order to optimise 
+production schedules, improve the publishing company profits and minimise 
+losses \cite{Zhao2001}.
+
+Printing an adequate number of copies, but not too many, might reduce the number 
+of unsold volumes, which could lead to losses. 
+In another hand, if the number of printed copies is not enough, the publisher 
+company might have temporary losses due to a lack of supply.
+
+Moreover, according to results reported in \cite{Fildes2010,Saeed2008}, reducing 
+the error in estimated sales leads to the improvement of sales predictions and 
+thus, in an enhancement in the whole production process.
 
 
-The rest of this paper is structured as follows: next, Section
+\textbf{UNDER CONSTRUCTION ;) }
+
+
+To make the print run as close as possible to the actual level of sales, it is 
+essential to have an estimation of those sales.
+In this sense, this paper continues our previous work on book sales prediction 
+\cite{Castillo2016books} in which the main factors influencing sales where 
+analyzed in order to create a tool that the publisher can use to decide how many 
+books should be printed.
+
+In this paper, the challenge we are taking is determining the actual level of 
+sales a new book will achieve.
+
+
+The rest of this paper is structured as follows: 
+A detailled review of the approaches related to sales prediction in similar scopes is presented in Section \ref{sec:soa}.
+Then, Section \ref{sec:methodology} details the methodology considered in the present study. 
+Obtained results after extensive experimentation are presented in Section \ref{sec:experiments_results}.
+Finally, conclusions and future lines of work are presented in Section \ref{sec:conclusions_future_work}.
+
+
+%*******************************************************************************
+%										STATE OF THE ART
+%*******************************************************************************
+\section{State of the art on sales forecasting} 
+\label{sec:soa}
+
+\textbf{UNDER CONSTRUCTION ;) }
+
 
 %*******************************************************************************
 %										METHODOLOGY
@@ -96,11 +138,13 @@ The rest of this paper is structured as follows: next, Section
 % Antonio - I like this figure, however, it seems on it that the results of the basic classifier are used as 'starting point' of the ensembles, and the results of these methods are used in the cost sensitive classification... is this correct? Otherwise, maybe we should change the design of the figure. ;D
 % Hossam: I have changed the figure as Antonio suggested ;)
 
+
 %*******************************************************************************
 %										MATERIALS AND METHOD
 %*******************************************************************************
 \section{Materials and methods}
 \label{sec:materials}
+
 
 %-------------------------- BASIC CLASSIFIERS --------------------------
 \subsection{Basic classifiers}
@@ -187,9 +231,11 @@ The result is the average of the generated trees during the process.
 \section{Cost sensitive classification}
 \label{sec:cost_sensitive_classification}
 
+
 %------------------------ COST SENSITIVE LEARNING ------------------------
 \subsection{Cost sensitive learning}
 \label{subsec:cost_learning}
+
 
 %------------------------ COST SENSITIVE CLASSIFICATION ------------------------
 \subsection{Cost sensitive classification}
