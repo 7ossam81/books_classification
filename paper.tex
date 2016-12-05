@@ -394,7 +394,7 @@ The developed classifiers are assessed by measuring their accuracy and the preci
 
 
 
-\begin{table}
+\begin{table*}
 \caption{Classification results using basic classifiers (without print-run)}
 \centering{}%
 \begin{tabular}{|c|c|c|c|c|c|}
@@ -426,7 +426,7 @@ $Precision_{VH}$  & 0.79$\pm$0.0071 & 0.81$\pm$0.0032 & 0.74$\pm$0.0072 & 0.77$\
 \hline 
 \end{tabular}
 \label{table:basic_classifiers}
-\end{table}
+\end{table*}
 
 
 In the next stage of the experiments, the ensemble classifiers (i.e. RF, Bagging and AdaBoost) are applied and evaluated. For Bagging and AdaBoost, the base classifier is selected to be the J48 decision tree algorithm. This selection is for three reasons: first, the J48 algorithm achieved very competitive evaluation results in the previous phase. Second, J48 is much faster as a learning algorithm compared to the MLP network which was the second candidate. Third, tree induction algorithms are good candidates as base classifiers in bagging and boosting because support diversity among the learners. It is well known that tree induction algorithms are relatively unstable (i.e. weak) base learners, meaning that small changes in the training data lead to big changes in the developed models. 
@@ -462,7 +462,7 @@ In the next stage of the experiments, the ensemble classifiers (i.e. RF, Bagging
 % Hossam- I have updated all figure as you Antonio suggested and I have added also Low and Medium results to the figures.
 
 
-\begin{table}
+\begin{table*}
 \caption{Classification results using ensemble classifiers (RF, AdaBoost and Bagging)}
 \centering{}%
 \begin{tabular}{|c|c|c|c|}
@@ -485,7 +485,7 @@ In the next stage of the experiments, the ensemble classifiers (i.e. RF, Bagging
 \hline 
 \end{tabular}
 \label{table:ensemble_classifiers}
-\end{table}
+\end{table*}
 
 %*******************************************************************************
 %										CONCLUSIONS AND FUTURE WORK
