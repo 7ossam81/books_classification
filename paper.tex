@@ -77,7 +77,8 @@ Book sales forecasting \sep Decision-aid models \sep Feature selection \sep Clas
 
 Determining the number of copies of a new book should the publisher print, the 
 so called {\em print run}, for delivery to bookstores is a challenging problem.
-Thus, it is extremely important to develop an accurate predictive method which 
+
+Thus, it is extremely important to develop accurate predictive methods which 
 could forecast the future sales a new book will achieve, in order to optimise 
 production schedules, improve the publishing company profits and minimise 
 losses \cite{Zhao2001}.
@@ -91,19 +92,35 @@ Moreover, according to results reported in \cite{Fildes2010,Saeed2008}, reducing
 the error in estimated sales leads to the improvement of sales predictions and 
 thus, in an enhancement in the whole production process.
 
+Usually the methods used to predict book sales have
+been generally based on experts' experience, who analyse data about sales and, 
+taking into account their knowledge of the industry, their experience, and their 
+perception about trends, could make decisions on the companies production.
+However, this process might be tedious, especially when the amount of data is 
+quite large. Moreover, different experts can reach different predictions from 
+the same dataset \cite{Sanders1994}.
+
 
 \textbf{UNDER CONSTRUCTION ;) }
 
 
 To make the print run as close as possible to the actual level of sales, it is 
-essential to have an estimation of those sales.
+essential to have an estimation of those sales. 
 In this sense, this paper continues our previous work on book sales prediction 
 \cite{Castillo2016books} in which the main factors influencing sales where 
 analyzed in order to create a tool that the publisher can use to decide how many 
 books should be printed.
+In that paper, several regression methods were applied to estimate sales for new launched books using a real dataset of book sales related to the Spanish market, provided by the Spanish publishing company Trevenque Editorial S.L.\footnote{{\tt http://editorial.trevenque.es}
 
-In this paper, the challenge we are taking is determining the actual level of 
-sales a new book will achieve.
+However, as finding adequate forecasting techniques and selecting the best method 
+to use represent also a problem, we propose configuring complex models based on
+ensembles \cite{Qiu2014} in order to face the challenge of determining the actual 
+level of sales a new book will achieve.
+Moreover, since publishers need models to explain obtained predictions, and 
+`black box' forecasting methods may not be suitable, using these ensemble 
+models publishers will be able to combine their expert knowledge about the 
+market with the created forecasting models in order to get a reliable estimation 
+of book sales level.
 
 
 The rest of this paper is structured as follows: 
