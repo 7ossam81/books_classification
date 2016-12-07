@@ -1,4 +1,5 @@
-\documentclass[a4paper,10pt,twocolumn,preprint,3p]{elsarticle}
+\documentclass[a4paper,10pt,onecolumn,preprint,3p]{elsarticle}
+% The format for draft in Elsevier is one column. ;D
 
 \usepackage{graphics,subfigure}
 \usepackage{amssymb}
@@ -47,14 +48,13 @@ University of Granada, Granada, Spain}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
 
-An important task when publishing a new book is determining an adequate number 
-of copies to be printed, but not a excesive number, as the unsold volumes will 
-lead to losses.
-In this paper, we face the problem of predicting total sales using cost-sensitive
-ensemble methods, that can be used as decision-aid tools for publishers, which 
-can provide a reliable guidance on the decision process of publishing a book. 
-A real dataset including the complete sales data for books published in Spain 
-across several years has been used to create forecasting models.
+An important task when publishing a new book is determining an accurate number 
+of copies to be printed. Doing both an under- or an overestimation will lead to financial losses.
+In this paper, we address the problem of predicting total sales using cost-sensitive ensemble methods.
+% Antonio - explain briefly what are them
+These can be used as reliable decision-aid tools for publishers, as a part of the final stages of the editorial process. 
+Thus, a real dataset including the complete sales data for books published in Spain across several years has been used to compute the prediction models.
+% Antonio - extend a bit this with the followed methodology.
 Results show that \emph{EXPLAIN THE RESULTS OBTAINED}.
 
 \end{abstract}
@@ -62,7 +62,7 @@ Results show that \emph{EXPLAIN THE RESULTS OBTAINED}.
 
 \begin{keyword}
 % Antonio - to refine later
-Book sales forecasting \sep Decision-aid models \sep Feature selection \sep Classification  
+Book sales forecasting \sep Decision-aid models \sep Feature selection \sep Classification \sep Ensemble methods
 \end{keyword}
 
 \end{frontmatter}
@@ -75,34 +75,24 @@ Book sales forecasting \sep Decision-aid models \sep Feature selection \sep Clas
 \section{Introduction}
 \label{sec:intro}
 
-Determining the number of copies of a new book should the publisher print, the 
-so called {\em print run}, for delivery to bookstores is a challenging problem.
+Inside the publishing process of a new book, deciding the best {\em print run}, i.e. the number of copies to be printed and delivered to bookstores, is a very challenging problem.
 
-Thus, it is extremely important to develop accurate predictive methods which 
-could forecast the future sales a new book will achieve, in order to optimise 
-production schedules, improve the publishing company profits and minimise 
-losses \cite{Zhao2001}.
+To this end, it is extremely important to develop accurate predictive models which could forecast the future sales a new book will achieve, in order to optimise production schedules: to improve the publishing company profits and to minimise losses \cite{Zhao2001}, due both to the excess or to the scarcity of units.
+%
+%Printing an adequate number of copies, but not too many, might reduce the number 
+%of unsold volumes, which could lead to losses. 
+%In another hand, if the number of printed copies is not enough, the publisher 
+%company might have temporary losses due to a lack of supply.
+%
+Since, according to the results reported in \cite{Fildes2010,Saeed2008}, reducing the error in estimated sales leads to an enhancement of the whole production process.
 
-Printing an adequate number of copies, but not too many, might reduce the number 
-of unsold volumes, which could lead to losses. 
-In another hand, if the number of printed copies is not enough, the publisher 
-company might have temporary losses due to a lack of supply.
-
-Moreover, according to results reported in \cite{Fildes2010,Saeed2008}, reducing 
-the error in estimated sales leads to the improvement of sales predictions and 
-thus, in an enhancement in the whole production process.
-
-Usually the methods used to predict book sales have
-been generally based on experts' experience, who analyse data about sales and, 
-taking into account their knowledge of the industry, their experience, and their 
-perception about trends, could make decisions on the companies production.
+Usually the prediction of book sales has been generally based on experts' experience. They analyse data about sales and, taking into account their knowledge of the industry, the production process, and their perception about trends, and take decisions on the production and publication process.
 However, this process might be tedious, especially when the amount of data is 
-quite large. Moreover, different experts can reach different predictions from 
-the same dataset \cite{Sanders1994}.
+quite large. Moreover, the results are not robust, since different experts can reach different predictions from the same dataset \cite{Sanders1994}.
 
 
-\textbf{UNDER CONSTRUCTION ;) }
-
+\textbf{UNDER CONSTRUCTION}
+% Antonio - I remove the ';)' because I want to check the parentheses correspondence and it breaks it. :P
 
 To make the print run as close as possible to the actual level of sales, it is 
 essential to have an estimation of those sales. 
@@ -122,9 +112,11 @@ models publishers will be able to combine their expert knowledge about the
 market with the created forecasting models in order to get a reliable estimation 
 of book sales level.
 
+% Antonio - We must remark that this approach is based in classification rather than regression, which is based on levels of sales (classes) instead of on numerical results. These will be easily 'explained' or justified for a (human) publisher.
+% Previous work also presented the results in an intelligible way, since it offered decision trees as the last output, but they include regression computation in the leaves. Here the models/outputs will be easily interpreted.
 
 The rest of this paper is structured as follows: 
-A detailled review of the approaches related to sales prediction in similar scopes is presented in Section \ref{sec:soa}.
+A detailed review of the approaches related to sales prediction in similar scopes is presented in Section \ref{sec:soa}.
 Then, Section \ref{sec:methodology} details the methodology considered in the present study. 
 Obtained results after extensive experimentation are presented in Section \ref{sec:experiments_results}.
 Finally, conclusions and future lines of work are presented in Section \ref{sec:conclusions_future_work}.
@@ -136,8 +128,8 @@ Finally, conclusions and future lines of work are presented in Section \ref{sec:
 \section{State of the art on sales forecasting} 
 \label{sec:soa}
 
-\textbf{UNDER CONSTRUCTION ;) }
-
+\textbf{UNDER CONSTRUCTION}
+% Antonio - I remove the ';)' because I want to check the parentheses correspondence and it breaks it. :P
 
 %*******************************************************************************
 %										METHODOLOGY
@@ -154,7 +146,7 @@ Finally, conclusions and future lines of work are presented in Section \ref{sec:
 \end{figure*}
 % Antonio - I like this figure, however, it seems on it that the results of the basic classifier are used as 'starting point' of the ensembles, and the results of these methods are used in the cost sensitive classification... is this correct? Otherwise, maybe we should change the design of the figure. ;D
 % Hossam: I have changed the figure as Antonio suggested ;)
-
+% Antonio - It is better now, however, is the evaluation the last stage of the methodology? Won't we choose the best approach based on the results? Won't we compose an useful tool with it as in previous paper? I mean a decision tree or so. ;D
 
 %*******************************************************************************
 %										MATERIALS AND METHOD
@@ -226,19 +218,30 @@ SVM has been successfully applied in forecasting and classification problems \ci
 
 \begin{itemize}
 \item \textbf{Bagging}: 
-Bagging which is called also Bootstrap aggregating is an ensemble meta-algorithm introduced in \cite{B1996}. Bagging works by training base classifiers (usually decision tree classifiers) based on generated new datasets from the original training dataset. The new generated datasets are drawn randomly with replacement in a size almost equal to the original dataset. The final classifier's output is based on aggregating the classifiers by taking a majority or weighted vote.
+It is also called \textit{Bootstrap aggregating} is an ensemble meta-algorithm introduced in \cite{B1996}. Bagging works by training base classifiers (usually decision tree classifiers) based on generated new datasets from the original training dataset. The new generated datasets are drawn randomly with replacement in a size almost equal to the original dataset. 
+% Antonio - I cannot understand this sentence (upper one). :/
+The final classifier's output is based on aggregating the base classifiers by taking a majority or weighted vote.
 
 
 \item \textbf{Boosting}: 
-Boosting is an ensemble classification algorithm which was first proposed in \cite{schapire1990strength}. Boosting is based on the idea that a set of weak classifiers can create a stronger one. In this work we adopt a powerful a variation of boosting called Adaptive Boosting or ''Adaboost'' for short \cite{FS1997}. Adaboost operates on a training dataset ${(x_{1},y_{1}),...,(x_{m},y_{m})}$ where each $x_{i}$ is a set of inputs belongs to some domain $X$ and each $y_{i}$ belongs to some label $Y$ assuming $Y$ is a binary class set $\{+1,-1\}$. 
+It is an ensemble classification algorithm which was firstly proposed in \cite{schapire1990strength}. Boosting is founded on the idea that a set of weak classifiers can create a stronger one. In this work we adopt a powerful a variation of boosting called \textit{Adaptive Boosting} or ``AdaBoost'' for short \cite{FS1997}. AdaBoost operates on a training dataset ${(x_{1},y_{1}),...,(x_{m},y_{m})}$ where each $x_{i}$ is a set of inputs belonging to some domain $X$ and each $y_{i}$ belongs to some label $Y$ assuming $Y$ is a binary class set $\{+1,-1\}$. 
 
 
-During the learning process, Adaboost modifies the dataset by weighting its samples. These weights are updated every time a new classifier is trained to increase the focus on the difficult data instances. Consequently, the final generated classifier is a weighted combination of all trained base classifiers. According to many previous works, Adaboost is resistant to overfitting and it can outperform many other state-of-the-art classification techniques.
+During the learning process, AdaBoost modifies the dataset by weighting its samples. These weights are updated every time a new classifier is trained to increase the focus 
+% Antonio - what is the focus here?
+on the difficult data instances. Consequently, the final generated classifier is a weighted combination of all trained base classifiers. According to many previous works, 
+% Antonio - if you say this, you must add some references. ;P
+AdaBoost is not affected 
+% Antonio - 'is not affected by' -> 'avoids'?
+by overfitting and it can outperform many other state-of-the-art classification techniques.
 
 
 \item \textbf{Random Forest}:
 This method is based on the construction of a set of decision trees using a stochastic process over the basis of C4.5 algorithm. It was proposed by Breiman in \cite{Breiman2001} and aims to create independent and uncorrelated trees based on different and random input vectors, following the same distribution. 
 The result is the average of the generated trees during the process.
+
+% Antonio - we should improve a bit this description to do it more complete. ;)
+
 \end{itemize}
 
 
@@ -295,16 +298,9 @@ No. & Feature Name & Variable & Type & In/Out\\
 \end{table*}
 
 
-The output variable which is the total sales is a categorical variable the represent the level of the quantity sold of a given book. Four categories are used to represent the total sales level: Low (L), Medium (M), High (H) and Very High (VH). Table \ref{table:freq} shows the ranges of total sales that correspond to each category along with the number of sold books that fall in. Discretization of the volume of sales was conducted with the aid of experts in the domain of editorial management business by defining the the four categories.
-
-% Antonio - We must explain how did we obtain or 'define' these categories... an expert's opinion or so. ;D
-% Hossam - I have added this to the latter paragraph. Please check.
- 
+The output variable which is related to the total amount of sales is a categorical variable which represent the level of the quantity sold for a given book. Thus, four categories have been considered to represent these levels: \textit{Low (L)}, \textit{Medium (M)}, \textit{High (H)}, and \textit{Very High (VH)}. Table \ref{table:freq} shows the ranges of total sales that correspond to each category along with the number of sold books that fall in. The discretization of the volume of sales was conducted by an expert in the domain of editorial management business, who defined the four categories.
 
 Table \ref{table:freq} reveal more information about the nature of the dataset. We can notice that most of the investigated books are categorized as Low and Medium levels forming 26.8\% and 36.4\% of the dataset, respectively. High volumes of sold books that range from 300 up to 1000 are categorized as High volume of sales and form 24\% of the dataset. On the other hand, books that achieved more than 1000 sold copies are categorized as Very High and they form around 12.8\% of the dataset. Our focus in this study is to identify the more profitable categories which are High and Very High. However, since the latter category is much smaller than the other ones, we can describe our dataset as imbalanced dataset which makes the problem of identifying this category harder and more challenging.
-
-
-
 
 
 \begin{table*}[ht]
@@ -390,9 +386,7 @@ In all experiments, 10-folds cross validation methodology is applied for trainin
 In the first stage of the experiments the basic classifiers k-NN, NB, MLP, J48 and SVM are applied for predicting the sales level. The performance of some classifiers is highly affected by the initial values of their parameters. For this reason, initial experiment were conducted to tune the parameters of k-NN, SVM and MLP. For k-NN the best classification results were obtained with k=1. For SVM, a rough grid search was used, the value for the cost $C$ is set to 50 and $\gamma$  to 0.01. For MLP, the number of hidden neurons is set to (number of features+ number of output classes)/2.
 
 
-The developed classifiers are assessed by measuring their accuracy and the precision and recall of each class label. Evaluation measures for all classifiers are shown in Table \ref{table:basic_classifiers}. It can be noticed that all classifiers have obtained very close accuracy ratios with a slight advantage for the MLP network with 71\% accuracy. In general, accuracy rates don't give an insight on how the classifier performs regarding each class. Therefore, precision and recall rates are examined for each class. Precision and recall values in Table \ref{table:basic_classifiers} show that J48 classifier achieved the highest recall value of 72\% for (VH) class with 74\% precision. The second best classifier for this important class is MLP with 68\% recall and 77\% precision. Having a look at the second important class which is (H), we can see that MLP has the highest recall with 65\% and a precision of 62\%. J48 comes second for the (H) class with a slight decrease in the recall value.
-
-
+The developed classifiers are assessed by measuring their accuracy and the precision and recall of each class label. Evaluation measures for all classifiers are shown in Table \ref{table:basic_classifiers}. 
 
 \begin{table*}
 \caption{Classification results using basic classifiers (without print-run)}
@@ -428,11 +422,9 @@ $Precision_{VH}$  & 0.79$\pm$0.0071 & 0.81$\pm$0.0032 & 0.74$\pm$0.0072 & 0.77$\
 \label{table:basic_classifiers}
 \end{table*}
 
+It can be noticed that all classifiers have obtained very close accuracy ratios with a slight advantage for the MLP network with 71\% accuracy. In general, accuracy rates don't give an insight on how the classifier performs regarding each class. Therefore, precision and recall rates are examined for each class. Precision and recall values in Table \ref{table:basic_classifiers} show that J48 classifier achieved the highest recall value of 72\% for (VH) class with 74\% precision. The second best classifier for this important class is MLP with 68\% recall and 77\% precision. Having a look at the second important class which is (H), we can see that MLP has the highest recall with 65\% and a precision of 62\%. J48 comes second for the (H) class with a slight decrease in the recall value.
 
 In the next stage of the experiments, the ensemble classifiers (i.e. RF, Bagging and AdaBoost) are applied and evaluated. For Bagging and AdaBoost, the base classifier is selected to be the J48 decision tree algorithm. This selection is for three reasons: first, the J48 algorithm achieved very competitive evaluation results in the previous phase. Second, J48 is much faster as a learning algorithm compared to the MLP network which was the second candidate. Third, tree induction algorithms are good candidates as base classifiers in bagging and boosting because support diversity among the learners. It is well known that tree induction algorithms are relatively unstable (i.e. weak) base learners, meaning that small changes in the training data lead to big changes in the developed models. 
-
-
-
 
 \begin{figure*}
 
@@ -457,9 +449,6 @@ In the next stage of the experiments, the ensemble classifiers (i.e. RF, Bagging
 \caption{Performance of Adaboost classifier over different number of iterations.}
 \label{fig:PerformanceAdaboost}
 \end{figure*}
-
-% Antonio - Just a comment about colors of the graphs. If one prints them in grey scale it cannot be distinguished for instance H and VH lines. ;)
-% Hossam- I have updated all figure as you Antonio suggested and I have added also Low and Medium results to the figures.
 
 
 \begin{table*}
