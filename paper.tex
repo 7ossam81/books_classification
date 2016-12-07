@@ -19,7 +19,7 @@
 \begin{frontmatter}
 
 %%%%%%%%%%%%%%%% Title %%%%%%%%%%%%%%%
-\title{Predicting Levels of Sales for Newly Published Books \\
+\title{Predicting Sales Level for Newly Published Books \\
 using Cost-Sensitive Ensemble Methods}
 
 
@@ -32,8 +32,6 @@ using Cost-Sensitive Ensemble Methods}
 \ead{pacv@ugr.es}
 \author[ugratc]{J.J. Merelo}
 \ead{jmerelo@geneura.ugr.es}
-%\author[ugratc]{Pablo Garc\'{\i}a-S\'anchez}
-%\ead{pablogarcia@ugr.es}
 
 
 \address[abd]{Business Information Technology Department, King Abdullah II School for Information Technology \\
@@ -47,7 +45,8 @@ University of Granada, Granada, Spain}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{abstract}
-
+%First you have to explain why it is enough to predict the level of
+%sales, and not the precise number. 
 An important task when publishing a new book is determining an accurate number 
 of copies to be printed. Doing both an under- or an overestimation will lead to financial losses.
 In this paper, we address the problem of predicting total sales using cost-sensitive ensemble methods.
@@ -55,7 +54,9 @@ In this paper, we address the problem of predicting total sales using cost-sensi
 These can be used as reliable decision-aid tools for publishers, as a part of the final stages of the editorial process. 
 Thus, a real dataset including the complete sales data for books published in Spain across several years has been used to compute the prediction models.
 % Antonio - extend a bit this with the followed methodology.
-Results show that \emph{EXPLAIN THE RESULTS OBTAINED}.
+% Explain also the method you are using and why it's an improvement
+% over the previous one - JJ
+Results show that %\emph{EXPLAIN THE RESULTS OBTAINED}.
 
 \end{abstract}
 
@@ -70,20 +71,29 @@ Book sales forecasting \sep Decision-aid models \sep Feature selection \sep Clas
 
 
 %*******************************************************************************
-%										INTRODUCTION
+%		            INTRODUCTION
 %*******************************************************************************
 \section{Introduction}
 \label{sec:intro}
 
-Inside the publishing process of a new book, deciding the best {\em print run}, i.e. the number of copies to be printed and delivered to bookstores, is a very challenging problem.
+% You have to
+% 1. Explain the problem: predicting the sales level. 
+% 2. Briefly state what has been done so far (previous paper) and how
+% this improves over that paper. You will have to compare results,
+% too.
+% 3. Talk about the methodology and why we think this should give us
+% better results.
+% 4. Hint at how we are going to prove it.
 
-To this end, it is extremely important to develop accurate predictive models which could forecast the future sales a new book will achieve, in order to optimise production schedules: to improve the publishing company profits and to minimise losses \cite{Zhao2001}, due both to the excess or to the scarcity of units.
-%
-%Printing an adequate number of copies, but not too many, might reduce the number 
-%of unsold volumes, which could lead to losses. 
-%In another hand, if the number of printed copies is not enough, the publisher 
-%company might have temporary losses due to a lack of supply.
-%
+Inside the publishing process of a new book, deciding the optimal {\em
+  print run}, i.e. the number of copies to be printed and delivered to
+bookstores, is a very challenging problem, that is why it is extremely
+important to develop accurate predictive models which could forecast
+the future sales a new book will achieve, in order to optimise
+production schedules: to improve the publishing company profits and to
+minimise losses \cite{Zhao2001}, due both to the excess or to the
+scarcity of units. 
+%I would eliminate this paragraph. We have it on the other one.
 Since, according to the results reported in \cite{Fildes2010,Saeed2008}, reducing the error in estimated sales leads to an enhancement of the whole production process.
 
 Usually the prediction of book sales has been generally based on experts' experience. They analyse data about sales and, taking into account their knowledge of the industry, the production process, and their perception about trends, and take decisions on the production and publication process.
@@ -91,9 +101,13 @@ However, this process might be tedious, especially when the amount of data is
 quite large. Moreover, the results are not robust, since different experts can reach different predictions from the same dataset \cite{Sanders1994}.
 
 
-\textbf{UNDER CONSTRUCTION}
-% Antonio - I remove the ';)' because I want to check the parentheses correspondence and it breaks it. :P
-
+%\textbf{UNDER CONSTRUCTION}
+% Antonio - I remove the ';)' because I want to check the parentheses
+% correspondence and it breaks it. :P
+% Use comments for non-text comments. Like under construction - JJ
+% Define level of sales before you use it here. Is it the actual
+% number? A ballpark? If it's the actual number, it should be unit
+% sales - JJ 
 To make the print run as close as possible to the actual level of sales, it is 
 essential to have an estimation of those sales. 
 In this sense, this paper continues our previous work on book sales prediction 
@@ -102,9 +116,9 @@ analyzed in order to create a tool that the publisher can use to decide how many
 books should be printed.
 In that paper, several regression methods were applied to estimate sales for new launched books using a real dataset of book sales related to the Spanish market, provided by the Spanish publishing company Trevenque Editorial S.L.\footnote{\tt http://editorial.trevenque.es}
 
-However, as finding adequate forecasting techniques and selecting the best method 
-to use represent also a problem, we propose configuring complex models based on
-ensembles \cite{Qiu2014} in order to face the challenge of determining the actual 
+However, since finding adequate forecasting techniques and selecting the best method 
+to use represents also a problem, we propose configuring complex models based on
+ensembles \cite{Qiu2014} in order to determine the actual 
 level of sales a new book will achieve.
 Moreover, since publishers need models to explain obtained predictions, and 
 `black box' forecasting methods may not be suitable, using these ensemble 
@@ -128,7 +142,7 @@ Finally, conclusions and future lines of work are presented in Section \ref{sec:
 \section{State of the art on sales forecasting} 
 \label{sec:soa}
 
-\textbf{UNDER CONSTRUCTION}
+%\textbf{UNDER CONSTRUCTION}
 % Antonio - I remove the ';)' because I want to check the parentheses correspondence and it breaks it. :P
 
 %*******************************************************************************
@@ -215,6 +229,9 @@ SVM has been successfully applied in forecasting and classification problems \ci
 %-------------------------- ENSEMBLE CLASSIFIERS --------------------------
 \subsection{Ensemble classifiers}
 \label{subsec:ensembles}
+
+% You should say something before and after this. Why ensemble would
+% work better, for instance - JJ 
 
 \begin{itemize}
 \item \textbf{Bagging}: 
@@ -489,7 +506,12 @@ In the next stage of the experiments, the ensemble classifiers (i.e. RF, Bagging
 %********************************************************************************
 \section*{Acknowledgements}
 
-This work has been supported in part by projects PreTEL (PRM Consultores - Trevenque S.L.), TIN2014-56494-C4-3-P and TEC2015-68752 (Spanish Ministry of Economy and Competitiveness and FEDER), and PROY-PP2015-06 (Plan Propio 2015, funded by the University of Granada, Spain).
+This work has been supported in part by projects PreTEL (PRM
+Consultores - Trevenque S.L.), TIN2014-56494-C4-3-P and TEC2015-68752
+(Spanish Ministry of Economy and Competitiveness and FEDER), and
+PROY-PP2015-06 (Plan Propio 2015, funded by the University of Granada,
+Spain).
+% Is still this last grant running? 
 
 
 
