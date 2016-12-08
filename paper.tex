@@ -86,7 +86,11 @@ Book sales forecasting \sep Decision-aid models \sep Feature selection \sep Clas
 % better results.
 % 4. Hint at how we are going to prove it.
 
-Reliable sales prediction can enhance the whole production process for different companies involved in manufacturing, marketing and trading.
+Reliable sales prediction can enhance the whole production process for different 
+companies involved in manufacturing, marketing and trading.
+Moreover, in some real-world cases, such as consumer electronics, fashion products and books,
+new products are presented/launched every season; thus, accurate sales forecasting 
+models could help in marketing campaigns.
 
 Specifically, focusing in the publishing process of a new book, deciding the optimal {\em
   print run}, i.e. the number of copies to be printed and delivered to
@@ -179,9 +183,41 @@ and artificial neural network for sales forecasting in printed circuit board ind
 Another authors have faced the problem of sales forecasting in textile-apparel 
 fashion industry (a very similar issue to the new book publishing problem) 
 using a clustering method together with decision trees, as in \cite{SThomassey2014},  or
-a forecasting method based on extreme machine learning with adaptive metrics of inputs \cite{Xia2012}.
+a forecasting method based on extreme machine learning with adaptive metrics 
+of inputs \cite{Xia2012}.
+Ching et al. \cite{ChingChin2010} use a decision-support system to classify new 
+products (tea, cosmetics and soft drink) based on their sales patterns, assuming 
+that products in the same class would follow a similar sales pattern. 
+In any case, the proposed system can not deal with qualitative 
+data related to the products. 
 
-% TODO
+Finally, in those problems where historical data are available, authors have 
+proposed applying classical time series forecasting methods.
+In \cite{Chang2009} a hybrid model integrating K-Means and fuzzy neural networks 
+to forecast the future sales of a printed circuit board is proposed.
+Recent works propose take advantage of information extracted from online reviews, 
+such as in \cite{ChernWSF15} where an analysis on historical data throughout online 
+reviews, reviewer characteristics, and review influences to understand how 
+electronic `word-of-mouth' influences product sales is presented.
+Similar works propose take advantage of information published on specialized 
+blogs \cite{Moon2010ICSSSM,Moon2010ICEC}, having confirmed relationships between 
+the number of blog references and book sales, at the time that different sales 
+patterns have been observed by analysing books in series (the first book published 
+takes the longest period to achieve every single sales scale, while the second book 
+takes the second longest period, and so on).
+In these cases, sales forecasting problems can be carried out thanks to a big 
+amount of online reviews and historical data.
+
+
+This paper continues our work on the prediction of sales of a new product for 
+which no historical data are available, and where the classical forecasting methods 
+based on time-series are not adequate.
+In this sense, in \cite{Castillo2016books} the main factors influencing sales where 
+analyzed in order to create a tool, based on several regression methods, that the 
+publisher can use to decide how many books should be printed.
+
+In this paper we address the problem of new book sales prediction using cost-sensitive ensemble methods.
+% TODO: complete this paragraph.
 
 
 %*******************************************************************************
