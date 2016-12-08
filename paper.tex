@@ -151,7 +151,37 @@ Traditionally, sales prediction problems have been solved using advaced methods
 such as regression models \cite{Papalexopoulos1990}, neural networks \cite{Yoo1999}, 
 fuzzy systems \cite{Mastorocostas2001}, or mixture of methods \cite{Chang2006715,Meulstee2008,ChiJie2012}.
 
-%\textbf{UNDER CONSTRUCTION}
+The most used technique to tackle sales forecasting problems is time-series prediction methods
+\cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990,KayacanUK10},
+however the correctness of the problem data strongly affects the predictions obtained.
+Moreover, this kind of methods are based on using historical data to make time series.
+However, in the case of new products sales prediction (such as the issue of new books), 
+there is no available historical sales data \cite{ChingChin2010}, 
+and only pre-sales data are available \cite{FaderHardie2005,Madsen2008}, 
+i.e. variables known before the product is on sale.
+
+Not only the lack of historical data makes this a complex problem, but also the fact 
+that several variables (seasonality, promotions, or fashions) might influence predictions
+\cite{Lapide1999,Thomassey2012,Xia2012,SThomassey2014,ChernWSF15}.
+
+Due to the difficulty this problem represents when forecasting sales of new 
+products, some authors have proposed using different data mining methods, such as
+data clustering and fuzzy neural networks \cite{Chang2009}  or
+extreme learning machine with adaptive metrics of inputs \cite{Xia2012}.
+In this sense, several authors have proposed using ensemble of models for sales forecasting, 
+as in \cite{ChiJie2012}, where a hybrid forecasting model integrates ensemble 
+empirical model decomposition and extreme learning machine to develop an effective 
+forecasting model for computer products sales.
+Also, Meulstee et al. \cite{Meulstee2008} developed an ensemble learning approach 
+for better handling of seasonal changes and fluctuations in consumer demands,
+while Chang et al. \cite{Chang2006715} integrated a fuzzy logic controller 
+and artificial neural network for sales forecasting in printed circuit board industry.
+Another authors have faced the problem of sales forecasting in textile-apparel 
+fashion industry (a very similar issue to the new book publishing problem) 
+using a clustering method together with decision trees, as in \cite{SThomassey2014},  or
+a forecasting method based on extreme machine learning with adaptive metrics of inputs \cite{Xia2012}.
+
+% TODO
 
 
 %*******************************************************************************
