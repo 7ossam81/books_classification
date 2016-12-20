@@ -153,76 +153,68 @@ Finally, conclusions and future lines of work are presented in Section \ref{sec:
 \section{State of the art on sales forecasting} 
 \label{sec:soa}
 
-Sales prediction is an important problem that can improve the quality of business 
-strategy for different companies. 
-Traditionally, sales prediction problems have been solved using advaced methods 
-such as regression models \cite{Papalexopoulos1990}, neural networks \cite{Yoo1999}, 
-fuzzy systems \cite{Mastorocostas2001}, or mixture of methods \cite{Chang2006715,Meulstee2008,ChiJie2012}.
+%Sales prediction is an important problem that can improve the quality of business strategy for different companies. 
+% Antonio - not needed to mention this again in this section. Maybe we can move it to the introduction. ;)
+Traditionally, sales prediction problems have been solved using advanced mathematical and machine learning-based methods
+% Antonio - why are they 'advanced'?
+such as regression models \cite{Papalexopoulos1990}, neural networks \cite{Yoo1999}, fuzzy systems \cite{Mastorocostas2001}, or mixture of methods \cite{Chang2006715,Meulstee2008,ChiJie2012}.
 
-The most used technique to tackle sales forecasting problems is time-series prediction methods
-\cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990,KayacanUK10},
-however the correctness of the problem data strongly affects the predictions obtained.
-Moreover, this kind of methods are based on using historical data to make time series.
-However, in the case of new products sales prediction (such as the issue of new books), 
-there is no available historical sales data \cite{ChingChin2010}, 
+In this line, the most used techniques to tackle sales forecasting problems have been time-series prediction
+\cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990,KayacanUK10}.
+% Antonio - the last reference doesn't exist
+However these methods are strongly dependent on problem data, so the obtained predictions are highly affected by their correctness.
+Moreover, this kind of methods are based on using historical data to make time series. However, in the case of new products sales prediction (such as the issue of new books), there is no available historical sales data \cite{ChingChin2010}, 
 and only pre-sales data are available \cite{FaderHardie2005,Madsen2008}, 
-i.e. variables known before the product is on sale.
+i.e. variables known before the product is on sale. 
+% Antonio - We should rewrite this, since a similar sentence was a weak asseveration in previous paper. The proposed methodology also uses historical data to infer the print-run of new books, so, why is this a problem for Time Series and it is useful for the proposed methods? :/
 
-Not only the lack of historical data makes this a complex problem, but also the fact 
-that several variables (seasonality, promotions, or fashions) might influence predictions
+Not only the lack of historical data makes this a complex problem, but also the fact that several `external' variables (seasonality, promotions, or fashions) might influence predictions
 \cite{Lapide1999,Thomassey2012,Xia2012,SThomassey2014,ChernWSF15}.
+% Antonio - choose just a couple of references to justify this. ;)
 
 Due to the difficulty this problem represents when forecasting sales of new 
-products, some authors have proposed using different data mining methods, such as
-data clustering and fuzzy neural networks \cite{Chang2009}  or
-extreme learning machine with adaptive metrics of inputs \cite{Xia2012}.
-In this sense, several authors have proposed using ensemble of models for sales forecasting, 
-as in \cite{ChiJie2012}, where a hybrid forecasting model integrates ensemble 
-empirical model decomposition and extreme learning machine to develop an effective 
-forecasting model for computer products sales.
-Also, Meulstee et al. \cite{Meulstee2008} developed an ensemble learning approach 
-for better handling of seasonal changes and fluctuations in consumer demands,
-while Chang et al. \cite{Chang2006715} integrated a fuzzy logic controller 
-and artificial neural network for sales forecasting in printed circuit board industry.
+products, some authors have proposed using different data mining methods, such as data clustering and fuzzy neural networks \cite{Chang2009} or extreme learning machine with adaptive metrics of inputs \cite{Xia2012}.
+In this line, several authors have applied the ensemble of models for sales forecasting, 
+% Antonio - briefly clarify what is an ensemble
+as it is done in \cite{ChiJie2012}, where a hybrid forecasting method integrates ensemble empirical model decomposition and extreme learning machine 
+% Antonio - learning machine or machine learning?
+% Anyway, what does it mean?
+to develop an effective forecasting model for computer products sales.
+Also, Meulstee et al. \cite{Meulstee2008} developed an ensemble learning approach for better handling of seasonal changes and fluctuations in consumer demands, whereas Chang et al. \cite{Chang2006715} integrated a fuzzy logic controller and an artificial neural network for sales forecasting in printed circuit board industry.
+
 Another authors have faced the problem of sales forecasting in textile-apparel 
 fashion industry (a very similar issue to the new book publishing problem) 
-using a clustering method together with decision trees, as in \cite{SThomassey2014},  or
-a forecasting method based on extreme machine learning with adaptive metrics 
-of inputs \cite{Xia2012}.
-Ching et al. \cite{ChingChin2010} use a decision-support system to classify new 
+using a clustering method together with decision trees, as in \cite{SThomassey2014},  or a forecasting method based on extreme machine learning with adaptive metrics of inputs \cite{Xia2012}.
+% Antonio - comment this last paper
+
+Ching et al. \cite{ChingChin2010} used a decision-support system to classify new 
 products (tea, cosmetics and soft drink) based on their sales patterns, assuming 
 that products in the same class would follow a similar sales pattern. 
-In any case, the proposed system can not deal with qualitative 
-data related to the products. 
+In any case, the proposed system can not deal with qualitative data related to the products. 
+In this paper, several classification-based approaches have been implemented and tested, also considering categorical data.
 
-Finally, in those problems where historical data are available, authors have 
-proposed applying classical time series forecasting methods.
+
+%Finally, in those problems where historical data are available, authors have 
+%proposed to apply classical time series forecasting methods.
+% Antonio - we said previously more or less that Time Series Prediction is not recommended
+
 In \cite{Chang2009} a hybrid model integrating K-Means and fuzzy neural networks 
 to forecast the future sales of a printed circuit board is proposed.
-Recent works propose take advantage of information extracted from online reviews, 
-such as in \cite{ChernWSF15} where an analysis on historical data throughout online 
-reviews, reviewer characteristics, and review influences to understand how 
-electronic `word-of-mouth' influences product sales is presented.
-Similar works propose take advantage of information published on specialized 
-blogs \cite{Moon2010ICSSSM,Moon2010ICEC}, having confirmed relationships between 
-the number of blog references and book sales, at the time that different sales 
-patterns have been observed by analysing books in series (the first book published 
-takes the longest period to achieve every single sales scale, while the second book 
-takes the second longest period, and so on).
+% Antonio - compare it with our work
+Recent works propose to take advantage of the information extracted from online reviews, such as in \cite{ChernWSF15} where it is conducted an analysis on historical data throughout online reviews, reviewer characteristics, and review influences; in order to understand how electronic `word-of-mouth' influences product sales.
+Similar researches took advantage of the information published on specialized 
+blogs \cite{Moon2010ICSSSM,Moon2010ICEC}, confirming there is a relationship between the number of blog references and the book sales. Therefore, different sales patterns have been observed by analysing books in series, i.e. the first book published takes the longest period to achieve every single sales scale, while the second book takes the second longest period, and so on.
 In these cases, sales forecasting problems can be carried out thanks to a big 
 amount of online reviews and historical data.
+% Antonio - compare these works and findings with our current work
 
 
-This paper continues our work on the prediction of sales of a new product for 
-which no historical data are available, and where the classical forecasting methods 
-based on time-series are not adequate.
-In this sense, in \cite{Castillo2016books} the main factors influencing sales where 
-analyzed in order to create a tool, based on several regression methods, that the 
-publisher can use to decide how many books should be printed.
+This paper continues our previous work on the prediction of sales of a new product for which no historical data are available, and where the classical forecasting methods based on time-series are not adequate \cite{Castillo2016books}. In that paper the main factors influencing sales where 
+analyzed in order to create a tool, based on several regression methods, that the publisher can use to decide how many books should be printed.
 
-In this paper we address the problem of new book sales prediction using cost-sensitive ensemble methods.
+However, in this paper we address the problem of new book sales prediction using cost-sensitive ensemble methods.
 % TODO: complete this paragraph.
-
+% Antonio - say why we continue the previous work (what wer the flaws), how are we continuing it, wat we expect to improve, the objective contribution, etc
 
 %*******************************************************************************
 %										METHODOLOGY
