@@ -51,9 +51,9 @@ University of Granada, Granada, Spain}
 % I guess that precision is relative in this kind of methods, since the publisher is not going to print exactly '237' books due to it is the output of a regression method. Instead, there could be a range of books to be printed (as a standard) related with an expected 'low', 'medium', 'high' or 'very high' amount of sales.
 % Moreover, I guess that the classification output, considering four classes would work better (more precisely and close to reality) than regression.
 % What do you think?
-An important task when publishing a new book is determining an accurate number 
-of copies to be printed. Doing both an under- or an overestimation will lead to financial losses.
-In this paper, we address the problem of predicting total sales using cost-sensitive ensemble methods.
+An important task when publishing a new book is determining the number 
+of copies to be printed, since doing both a (dramatic) under- or overestimation will lead to important financial losses.
+In this paper, we transform this problem into a classification one, defining different sales levels. Then, we address the problem of predicting these levels  applying cost-sensitive ensemble methods.
 % Antonio - explain briefly what are them
 These can be used as reliable decision-aid tools for publishers, as a part of the final stages of the editorial process. 
 Thus, a real dataset including the complete sales data for books published in Spain across several years has been used to compute the prediction models.
@@ -92,54 +92,44 @@ Book sales forecasting \sep Decision-aid models \sep Feature selection \sep Clas
 
 Reliable sales prediction can enhance the whole production process for different 
 companies involved in manufacturing, marketing and trading.
-Moreover, in some real-world cases, such as consumer electronics, fashion products and books,
-new products are presented/launched every season; thus, accurate sales forecasting 
-models could help in marketing campaigns.
+Moreover, in some real-world cases, such as consumer electronics, fashion products and books, new products are presented/launched every season; thus, accurate sales forecasting models could help in marketing campaigns for instance.
 
-Specifically, focusing in the publishing process of a new book, deciding the optimal {\em
-  print run}, i.e. the number of copies to be printed and delivered to
-bookstores, is a very challenging problem, that is why it is extremely
+Specifically, focusing in the publishing process of a new book, deciding the optimal {\em  print run}, i.e. the number of copies to be printed and delivered to bookstores, is a very challenging problem. Thus, it is extremely
 important to develop accurate predictive models which could forecast
 the future sales a new book will achieve, in order to optimise
-production schedules: to improve the publishing company profits and to
-minimise losses \cite{Zhao2001}, due both to the excess or to the
-scarcity of units. 
+production schedules \cite{Fildes2010,Saeed2008,Zhao2001}: to improve the publishing company profits and to minimise losses, due both to the excess or to the scarcity of units. 
 %I would eliminate this paragraph. We have it on the other one.
-Since, according to the results reported in \cite{Fildes2010,Saeed2008}, reducing the error in estimated sales leads to an enhancement of the whole production process.
+%Since, according to the results reported in \cite{Fildes2010,Saeed2008}, reducing the error in estimated sales leads to an enhancement of the whole production process.
+% Antonio - I agree. Removed
 
-Usually the prediction of book sales has been generally based on experts' experience. They analyse data about sales and, taking into account their knowledge of the industry, the production process, and their perception about trends, and take decisions on the production and publication process.
-However, this process might be tedious, especially when the amount of data is 
-quite large. Moreover, the results are not robust, since different experts can reach different predictions from the same dataset \cite{Sanders1994}.
+Traditionally the prediction of book sales has been generally based on experts' experience. They analyse data about sales and, taking into account their knowledge of the industry, the production issues, and their perception about trends, take decisions on the production and publication processes.
+However, this procedure might be tedious, especially when the amount of data is 
+quite large. Moreover, the results are not robust, since different experts could come to different predictions from the same dataset \cite{Sanders1994}.
 
-
-%\textbf{UNDER CONSTRUCTION}
-% Antonio - I remove the ';)' because I want to check the parentheses
-% correspondence and it breaks it. :P
-% Use comments for non-text comments. Like under construction - JJ
+% TODO: UNDER CONSTRUCTION
 % Define level of sales before you use it here. Is it the actual
 % number? A ballpark? If it's the actual number, it should be unit
 % sales - JJ 
-To make the print run as close as possible to the actual level of sales, it is 
-essential to have an estimation of those sales. 
-In this sense, this paper continues our previous work on book sales prediction 
-\cite{Castillo2016books} in which the main factors influencing sales where 
-analyzed in order to create a tool that the publisher can use to decide how many 
-books should be printed.
-In that paper, several regression methods were applied to estimate sales for new launched books using a real dataset of book sales related to the Spanish market, provided by the Spanish publishing company Trevenque Editorial S.L.\footnote{\tt http://editorial.trevenque.es}
+% Antonio - done in a paragraph below
+It is also possible to use any kind of decision-aid tool, such as estimating or predictive models. These should be able to compute an accurate number of expected sales which can help the publisher (expert) to take the optimal decision. 
+Thus, in our previous work \cite{Castillo2016books}, the main factors influencing sales where analyzed in order to create that kind of tool.
+In that paper, several regression methods were applied to estimate sales for new launched books using a real dataset of book sales related to the Spanish market, provided by the Spanish publishing company Trevenque Editorial S.L.\footnote{\tt http://editorial.trevenque.es}.
 
-However, since finding adequate forecasting techniques and selecting the best method 
-to use represents also a problem, we propose configuring complex models based on
-ensembles \cite{Qiu2014} in order to determine the actual 
-level of sales a new book will achieve.
-Moreover, since publishers need models to explain obtained predictions, and 
-`black box' forecasting methods may not be suitable, using these ensemble 
-models publishers will be able to combine their expert knowledge about the 
-market with the created forecasting models in order to get a reliable estimation 
-of book sales level.
+% Antonio - this is themotivation/justification of the present work. Please all chek it. ;D
+However, the complexity of those models, even if they yielded a decision tree might be a flaw for publishers when they must work with them in real scenarios, since the leaves of those trees are complicated regression formulae.
+In addition, the estimated number despite being accurate according to the experiments, might not be very reliable for these experts, in the sense that most of them would prefer to deal with categorical variables to include in their own `prediction formulae'.
 
-% Antonio - We must remark that this approach is based in classification rather than regression, which is based on levels of sales (classes) instead of on numerical results. These will be easily 'explained' or justified for a (human) publisher.
-% Previous work also presented the results in an intelligible way, since it offered decision trees as the last output, but they include regression computation in the leaves. Here the models/outputs will be easily interpreted.
+Thus, having in mind `the human factor' of the print-run decision process, in this paper we have addressed the problem from another perspective. We have defined, with the help of an expert, different \textit{levels or ranges of sales}, composing different incremental categories: low, medium, high and very high. Then, these have been considered as classes, so the given dataset has been labelled according to them, and the problem has been faced as a classification one.
 
+In order to solve it, in this work we propose configuring complex models based on ensembles \cite{Qiu2014} in order to determine the actual level of sales a new book will achieve.
+% Antonio - justify why ensembles have been chosen instead of other classification approaches: accuracy, perform, easier to interpret, faster, ...
+Another advantage is they are easier to interpret than `black box' forecasting methods, such as regression techniques. So, using these ensemble methods, publishers will be able to combine their expert knowledge about the 
+market with the obtained models in order to get a reliable estimation 
+on book sales level. Moreover, as the output will be just a class, they will be able to understand and justify better their decision.
+
+% Antonio: TODO - explain how are we going to demonstrate the value of this proposal and how are we going to prove that it is better than our previous approach... Will it 'better' or just 'different' and also valid as a decision tool? Will we count with an expert to compare them? Maybe JJ could be the Expert? :D
+
+% Antonio: TODO - rewrite with the final structure
 The rest of this paper is structured as follows: 
 A detailed review of the approaches related to sales prediction in similar scopes is presented in Section \ref{sec:soa}.
 Then, Section \ref{sec:methodology} details the methodology considered in the present study. 
