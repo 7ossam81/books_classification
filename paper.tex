@@ -53,7 +53,8 @@ University of Granada, Granada, Spain}
 % What do you think?
 An important task when publishing a new book is determining the number 
 of copies to be printed, since doing both a (dramatic) under- or overestimation will lead to important financial losses.
-In this paper, we transform this problem into a classification one, defining different sales levels. Then, we address the problem of predicting these levels  applying cost-sensitive ensemble methods.
+In this paper, we transform this problem into a classification one, defining different sales levels i.e. classes. The obtained results will be easier to interpret by publishers than other black-box techniques, so they will consider them in their decision process.
+The problem of predicting these levels has been addressed applying cost-sensitive ensemble methods.
 % Antonio - explain briefly what are them
 These can be used as reliable decision-aid tools for publishers, as a part of the final stages of the editorial process. 
 Thus, a real dataset including the complete sales data for books published in Spain across several years has been used to compute the prediction models.
@@ -119,7 +120,10 @@ In that paper, several regression methods were applied to estimate sales for new
 However, the complexity of those models, even if they yielded a decision tree might be a flaw for publishers when they must work with them in real scenarios, since the leaves of those trees are complicated regression formulae.
 In addition, the estimated number despite being accurate according to the experiments, might not be very reliable for these experts, in the sense that most of them would prefer to deal with categorical variables to include in their own `prediction formulae'.
 
-Thus, having in mind `the human factor' of the print-run decision process, in this paper we have addressed the problem from another perspective. We have defined, with the help of an expert, different \textit{levels or ranges of sales}, composing different incremental categories: low, medium, high and very high. Then, these have been considered as classes, so the given dataset has been labelled according to them, and the problem has been faced as a classification one.
+Thus, having in mind `the human factor' of the print-run decision process, in this paper we have addressed the problem from another perspective. We have defined, with the help of an expert, different \textit{levels or ranges of sales}, composing different incremental categories: \textit{Low, Medium, High} and \textit{Very High}. Then, these have been considered as classes, so the given dataset has been labelled according to them, and the problem has been faced as a classification one.
+
+Moreover, handling the problem as a classification task let us to give more emphasize on the ranges which could be more `critical', e.g. the most profitable books (High and Very High categories). Thus, we can penalize more the misclassification of these categories and, consequently, this tool will perform a better identification of successful books than our previous approach.
+% which will be definitely very interesting for publishers.
 
 In order to solve it, in this work we propose configuring complex models based on ensembles \cite{Qiu2014} in order to determine the actual level of sales a new book will achieve.
 % Antonio - justify why ensembles have been chosen instead of other classification approaches: accuracy, perform, easier to interpret, faster, ...
