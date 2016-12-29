@@ -97,7 +97,7 @@ Moreover, in some real-world cases, such as consumer electronics, fashion produc
 Specifically, focusing in the publishing process of a new book, deciding the optimal {\em  print run}, i.e. the number of copies to be printed and delivered to bookstores, is a very challenging problem. Thus, it is extremely
 important to develop accurate predictive models which could forecast
 the future sales a new book will achieve, in order to optimise
-production schedules \cite{Fildes2010,Saeed2008,Zhao2001}: to improve the publishing company profits and to minimise losses, due both to the excess or to the scarcity of units. 
+production schedules \cite{Fildes2010,Saeed2008,Zhao2001}, to improve the publishing company profits and to minimise losses, due both to the excess or to the scarcity of units. 
 %I would eliminate this paragraph. We have it on the other one.
 %Since, according to the results reported in \cite{Fildes2010,Saeed2008}, reducing the error in estimated sales leads to an enhancement of the whole production process.
 % Antonio - I agree. Removed
@@ -119,14 +119,14 @@ In that paper, several regression methods were applied to estimate sales for new
 However, the complexity of those models, even if they yielded a decision tree might be a flaw for publishers when they must work with them in real scenarios, since the leaves of those trees are complicated regression formulae.
 In addition, the estimated number despite being accurate according to the experiments, might not be very reliable for these experts, in the sense that most of them would prefer to deal with categorical variables to include in their own `prediction formulae'.
 
-Thus, having in mind `the human factor' of the print-run decision process, in this paper we have addressed the problem from another perspective. We have defined, with the help of an expert, different \textit{levels or ranges of sales}, composing different incremental categories: \textit{Low, Medium, High} and \textit{Very High}. Then, these have been considered as classes, so the given dataset has been labelled according to them, and the problem has been faced as a classification one.
+Thus, having in mind `the human factor' of the print-run decision process, in this paper we have addressed the problem from a new perspective. We have defined, with the help of an expert, different \textit{levels or ranges of sales}, composing different incremental categories: \textit{Low, Medium, High} and \textit{Very High}. Then, these have been considered as classes, so the given dataset has been labelled according to them, and the problem has been faced as a classification one.
 
-Moreover, handling the problem as a classification task let us to give more emphasize on the ranges which could be more `critical', e.g. the most profitable books (High and Very High categories). Thus, we can penalize more the misclassification of these categories and, consequently, this tool will perform a better identification of successful books than our previous approach.
+Moreover, handling the problem as a classification task let us to emphasize on the ranges which could be more `critical', e.g. the most profitable books (High and Very High categories). Thus, we can penalize more the misclassification of these categories and, consequently, this tool will perform a better identification of successful books than our previous approach \cite{Castillo2016books}.
 % which will be definitely very interesting for publishers.
 
-In order to solve it, in this work we propose configuring complex models based on ensembles \cite{Qiu2014} in order to determine the actual level of sales a new book will achieve.
+In order to solve this problem, in this work we propose configuring complex models based on ensembles \cite{Qiu2014} in order to determine the actual level of sales a new book will achieve.
 % Antonio - justify why ensembles have been chosen instead of other classification approaches: accuracy, perform, easier to interpret, faster, ...
-Another advantage is they are easier to interpret than `black box' forecasting methods, such as regression techniques. So, using these ensemble methods, publishers will be able to combine their expert knowledge about the 
+Another advantage of the proposed approach is that they are easier to interpret than `black box' forecasting methods, such as regression techniques. So, using these ensemble methods, publishers will be able to combine their expert knowledge about the 
 market with the obtained models in order to get a reliable estimation 
 on book sales level. Moreover, as the output will be just a class, they will be able to understand and justify better their decision.
 
@@ -153,8 +153,7 @@ Traditionally, sales prediction problems have been solved using advanced mathema
 such as regression models \cite{Papalexopoulos1990}, neural networks \cite{Yoo1999}, fuzzy systems \cite{Mastorocostas2001}, or mixture of methods \cite{Chang2006715,Meulstee2008,ChiJie2012}.
 
 In this line, the most used techniques to tackle sales forecasting problems have been time-series prediction
-\cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990,KayacanUK10}.
-% Antonio - the last reference doesn't exist
+\cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990}. %,KayacanUK10}. % Antonio - the last reference doesn't exist
 However these methods are strongly dependent on problem data, so the obtained predictions are highly affected by their correctness.
 Moreover, this kind of methods are based on using historical data to make time series. However, in the case of new products sales prediction (such as the issue of new books), there is no available historical sales data \cite{ChingChin2010}, 
 and only pre-sales data are available \cite{FaderHardie2005,Madsen2008}, 
@@ -205,9 +204,8 @@ amount of online reviews and historical data.
 This paper continues our previous work on the prediction of sales of a new product for which no historical data are available, and where the classical forecasting methods based on time-series are not adequate \cite{Castillo2016books}. In that paper the main factors influencing sales where 
 analyzed in order to create a tool, based on several regression methods, that the publisher can use to decide how many books should be printed.
 
-However, in this paper we address the problem of new book sales prediction using cost-sensitive ensemble methods.
-% TODO: complete this paragraph.
-% Antonio - say why we continue the previous work (what wer the flaws), how are we continuing it, wat we expect to improve, the objective contribution, etc
+However, in this paper we address the problem of new book sales prediction using cost-sensitive ensemble methods, defining with the help of an expert different \textit{levels or ranges of sales} in order to compose different incremental categories or classes.
+
 
 %*******************************************************************************
 %										METHODOLOGY
