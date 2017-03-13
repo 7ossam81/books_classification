@@ -7,6 +7,7 @@
 \usepackage[dvips]{epsfig}
 \usepackage[latin1]{inputenc}
 \usepackage{url}
+\usepackage{multirow}
 
 \def\CC{{C\hspace{-.05em}\raisebox{.4ex}{\tiny\bf ++}}~}
 \addtolength{\textfloatsep}{-0.5cm}
@@ -463,6 +464,29 @@ Recall_{i}=\frac{C_{ii}}{\sum_{j}C_{ji}}
 \end{figure*}
 
 
+
+
+\begin{table}
+\caption{Cost matrices for three different scenarios}
+\centering{}%
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline 
+\multicolumn{2}{|c|}{} & \multicolumn{14}{c|}{Actual}\tabularnewline
+\hline 
+\multicolumn{2}{|c|}{} & \multicolumn{4}{c|}{Cost matrix 1} & \multirow{6}{*}{} & \multicolumn{4}{c|}{Cost matrix 2} & \multirow{6}{*}{} & \multicolumn{4}{c|}{Cost matrix 3}\tabularnewline
+\cline{1-6} \cline{8-11} \cline{13-16} 
+\multicolumn{2}{|c|}{} & L & M & H & VH &  & L & M & H & VH &  & L & M & H & VH\tabularnewline
+\cline{1-6} \cline{8-11} \cline{13-16} 
+\multirow{4}{*}{Predicted} & L & 0 & 1 & 2 & 3 &  & 0 & 1 & 2 & 3 &  & 0 & 1 & 2 & 3\tabularnewline
+\cline{2-6} \cline{8-11} \cline{13-16} 
+ & M & 5 & 0 & 1 & 2 &  & 10 & 0 & 1 & 2 &  & 15 & 0 & 1 & 2\tabularnewline
+\cline{2-6} \cline{8-11} \cline{13-16} 
+ & H & 10 & 5 & 0 & 1 &  & 20 & 10 & 0 & 1 &  & 30 & 15 & 0 & 1\tabularnewline
+\cline{2-6} \cline{8-11} \cline{13-16} 
+ & VH & 15 & 10 & 5 & 0 &  & 30 & 20 & 10 & 0 &  & 45 & 30 & 15 & 0\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
 
 
 %*******************************************************************************
