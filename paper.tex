@@ -57,7 +57,7 @@ of copies to be printed, since doing both a (dramatic) under- or overestimation 
 In this paper, we transform this problem into a classification one, defining different sales levels i.e. classes. 
 The obtained results will be easier to interpret by publishers than other black-box techniques, 
 so these methods can be used as reliable decision-aid tools for publishers, to be considered in their decision as a part of the final stages of the editorial process.
-
+% paragraphs in the abstract is not a good idea.
 The problem of predicting these levels has been addressed applying cost-sensitive ensemble methods.
 % Antonio - explain briefly what are them  and  the followed methodology.
 In order to do so, a real dataset collected by a Spanish publishing company, including the complete sales data for books published in Spain across several years, has been used to design and evaluate the prediction models.
@@ -69,7 +69,8 @@ Results show that %\emph{EXPLAIN THE RESULTS OBTAINED}.
 
 \begin{keyword}
 % Antonio - to refine later
-Book sales forecasting \sep Decision-aid models \sep Feature selection \sep Classification \sep Ensemble methods
+Book sales forecasting \sep Decision-aid models \sep Feature selection
+\sep Classification \sep Ensemble methods %why commas _and_ CAPS? - JJ
 \end{keyword}
 
 \end{frontmatter}
@@ -122,7 +123,13 @@ In addition, the estimated number despite being accurate according to the experi
 
 Thus, having in mind `the human factor' of the print-run decision process, in this paper we have addressed the problem from a new perspective. We have defined, with the help of an expert, different \textit{levels or ranges of sales}, composing different incremental categories: \textit{Low, Medium, High} and \textit{Very High}. Then, these have been considered as classes, so the given dataset has been labelled according to them, and the problem has been faced as a classification one.
 
-Moreover, handling the problem as a classification task let us to emphasize on the ranges which could be more `critical', e.g. the most profitable books (High and Very High categories). Thus, we can penalize more the misclassification of these categories and, consequently, this tool will perform a better identification of successful books than our previous approach \cite{Castillo2016books}.
+Moreover, handling the problem as a classification task let us to
+emphasize on the ranges which could be more `critical', e.g. the most
+profitable books (High and Very High categories). % You have used
+                                % italics for this before but no
+                                % emphasis now. You have to unify
+                                % typography - JJ
+Thus, we can penalize more the misclassification of these categories and, consequently, this tool will perform a better identification of successful books than our previous approach \cite{Castillo2016books}.
 % which will be definitely very interesting for publishers.
 
 In order to solve this problem, in this work we propose configuring complex models based on ensembles \cite{Qiu2014} in order to determine the actual level of sales a new book will achieve.
@@ -153,7 +160,7 @@ Traditionally, sales prediction problems have been solved using advanced mathema
 % Antonio - why are they 'advanced'?
 such as regression models \cite{Papalexopoulos1990}, neural networks \cite{Yoo1999}, fuzzy systems \cite{Mastorocostas2001}, or mixture of methods \cite{Chang2006715,Meulstee2008,ChiJie2012}.
 
-In this line, the most used techniques to tackle sales forecasting problems have been time-series prediction
+In this line of work, the most widely used techniques to tackle sales forecasting problems have been time-series prediction
 \cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990}. %,KayacanUK10}. % Antonio - the last reference doesn't exist
 However these methods are strongly dependent on problem data, so the obtained predictions are highly affected by their correctness.
 Moreover, this kind of methods are based on using historical data about an article to make time series. However, in the case of new products sales prediction (such as the issue of new books), there is no available historical sales data for that product \cite{ChingChin2010}, and only pre-sales data can be considered \cite{FaderHardie2005,Madsen2008}, 
@@ -189,11 +196,18 @@ In \cite{Chang2009} a hybrid model integrating K-Means and fuzzy neural networks
 to forecast the future sales of a printed circuit board is proposed.
 % Antonio - compare it with our work
 Recent works propose to take advantage of the information extracted from online reviews, such as in \cite{ChernWSF15} where it is conducted an analysis on historical data throughout online reviews, reviewer characteristics, and review influences; in order to understand how electronic `word-of-mouth' influences product sales.
-Similar researches took advantage of the information published on specialized 
+Similar research efforts took advantage of the information published
+on specialized  %please revise 
 blogs \cite{Moon2010ICSSSM,Moon2010ICEC}, confirming there is a relationship between the number of blog references and the book sales. Therefore, different sales patterns have been observed by analysing books in series, i.e. the first book published takes the longest period to achieve every single sales scale, while the second book takes the second longest period, and so on.
 In these cases, sales forecasting problems can be carried out thanks to a big 
 amount of online reviews and historical data.
 % Antonio - compare these works and findings with our current work
+
+% There is no clear narrative here. State of the art must show the
+% progression in this kind of work and how different levels of success
+% have been achieved via different methods. You have to hint that what
+% we are using here, sales levels, is going to be better than
+% predicting sales via a regression model, for instance - JJ
 
 
 This paper continues our previous work on the prediction of sales of a new product for which no historical data are available, and where the classical forecasting methods based on time-series are not adequate \cite{Castillo2016books}. In that paper the main factors influencing sales where 
@@ -358,9 +372,11 @@ The result is the average of the generated trees during the process.
 \label{sec:dataset}
 
 
-The obtained dataset contains collected information about 6083 different books produced by 209 publishers. Each book or pattern in the dataset is represented by 10 features as shown in Table \ref{tabla:params_pre_sales}. 
-
-
+The obtained dataset contains collected information about 6083
+different books produced by 209 publishers. Each book or pattern in
+the dataset is represented by 10 features, listed in Table
+\ref{tabla:params_pre_sales}. 
+%
 \begin{table*}
 \caption{Pre-sales features and Sales level(Output class). } 
 \label{tabla:params_pre_sales}
@@ -387,10 +403,45 @@ No. & Feature Name & Variable & Type & In/Out\\
 \end{table*}
 
 
-The output variable which is related to the total amount of sales is a categorical variable which represent the level of the quantity sold for a given book. Thus, four categories have been considered to represent these levels: \textit{Low (L)}, \textit{Medium (M)}, \textit{High (H)}, and \textit{Very High (VH)}. Table \ref{table:freq} shows the ranges of total sales that correspond to each category along with the number of sold books that fall in. The discretization of the volume of sales was conducted by an expert in the domain of editorial management business, who defined the four categories.
-% Antonio - TODO: It would be great if we could justify... At least, the expert (JJ :P) could write a sentence clarifying his decision for these ranges.
+The output variable related to the total amount of sales is a
+categorical variable which represent the level of the quantity sold
+for a given book. We have defined four categories to
+represent these levels: \textit{Low (L)}, \textit{Medium (M)},
+\textit{High (H)}, and \textit{Very High (VH)}. Table \ref{table:freq}
+shows the ranges of total sales that correspond to each category along
+with the number of sold books that fall in. The discretization of the
+volume of sales was conducted by an expert in the domain of editorial
+management business, who defined the four categories. They are also
+adapted to the Spanish market. The first level, 60, corresponds to the
+first quartile in the book sales distribution: 25\% of books sell less
+than 60 copies. The second has been established at the typical print
+run in the Spanish market, which is 300 copies, including not only
+books for sale, but also books sent as a gift, to display or for
+reviewers. 1000 books would be considered a decently selling book with
+several print runs; second print run will depend on how fast the first
+one sales, but could typically be 500 to 1000 new copies. Anything
+selling more than 1000 copies will sell extremely well, with only 60
+books reaching more than 5000 physical copies sold in the data set we
+used. These sales levels will have to be adjusted to particular
+markets using the same methodology we have used here, although a good
+rule of thumb would be, after examining the initial data set and the
+distribution of sales among different books, to choose the 4 quartiles
+or 3 terciles and split the top one giving the ``very high'' category
+to the books in the top decile. 
 
-Table \ref{table:freq} reveal more information about the nature of the dataset. We can notice that most of the investigated books are categorized as Low and Medium levels forming 26.8\% and 36.4\% of the dataset, respectively. High volumes of sold books that range from 301 up to 1000 are categorized as High volume of sales and form 24\% of the dataset. On the other hand, books that achieved more than 1000 sold copies are categorized as Very High and they form around 12.8\% of the dataset. Our focus in this study is to identify the more profitable categories which are High and Very High. However, since the latter category is much smaller than the other ones, we can describe our dataset as imbalanced dataset which makes the problem of identifying this category harder and more challenging.
+Table \ref{table:freq} reveal more information about the nature of the
+dataset. Please note that most of the investigated books are
+categorized as Low and Medium %once again, unify typography
+levels forming 26.8\% and 36.4\% of the dataset, respectively. High
+volumes of sold books that range from 301 up to 1000 are categorized
+as High volume of sales and form 24\% of the dataset. On the other
+hand, books that achieved more than 1000 sold copies are categorized
+as Very High and they form around 12.8\% of the dataset. Our focus in
+this study is to identify the more profitable categories which are
+High and Very High. However, since the latter category is much smaller
+than the other ones, we can describe our dataset as imbalanced which
+makes the problem of identifying this category harder and more
+challenging. 
 
 
 \begin{table*}[ht]
