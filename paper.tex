@@ -27,8 +27,8 @@ using Cost-Sensitive Ensemble Methods}
 %%%%%%%%%%%%%%%% Authors %%%%%%%%%%%%%%
 \author[abd]{Hossam Faris}
 \ead{hossam.faris@ju.edu.jo}
-\author[ugrtstc]{Antonio M. Mora}
-\ead{amorag@geneura.ugr.es}
+\author[ugratc]{Antonio M. Mora}
+\ead{amorag@ugr.es}
 \author[ugratc]{Pedro A. Castillo}
 \ead{pacv@ugr.es}
 \author[ugratc]{J.J. Merelo}
@@ -37,8 +37,8 @@ using Cost-Sensitive Ensemble Methods}
 
 \address[abd]{Business Information Technology Department, King Abdullah II School for Information Technology \\
 The University of Jordan, Amman, Jordan}
-\address[ugrtstc]{Department of Signal Theory, Telematics and Communications, ETSIIT and CITIC \\
-University of Granada, Granada, Spain}
+%\address[ugratc]{Department of Signal Theory, Telematics and Communications, ETSIIT and CITIC \\
+%University of Granada, Granada, Spain}
 \address[ugratc]{Department of Computer Architecture and Computer Technology, ETSIIT and CITIC \\
 University of Granada, Granada, Spain}
 
@@ -156,35 +156,29 @@ such as regression models \cite{Papalexopoulos1990}, neural networks \cite{Yoo19
 In this line, the most used techniques to tackle sales forecasting problems have been time-series prediction
 \cite{Chu2003,Brown1959,Winters1960,Box1969,Papalexopoulos1990}. %,KayacanUK10}. % Antonio - the last reference doesn't exist
 However these methods are strongly dependent on problem data, so the obtained predictions are highly affected by their correctness.
-Moreover, this kind of methods are based on using historical data to make time series. However, in the case of new products sales prediction (such as the issue of new books), there is no available historical sales data \cite{ChingChin2010}, 
-and only pre-sales data are available \cite{FaderHardie2005,Madsen2008}, 
+Moreover, this kind of methods are based on using historical data about an article to make time series. However, in the case of new products sales prediction (such as the issue of new books), there is no available historical sales data for that product \cite{ChingChin2010}, and only pre-sales data can be considered \cite{FaderHardie2005,Madsen2008}, 
 i.e. variables known before the product is on sale. 
-% Antonio - We should rewrite this, since a similar sentence was a weak asseveration in previous paper. The proposed methodology also uses historical data to infer the print-run of new books, so, why is this a problem for Time Series and it is useful for the proposed methods? :/
 
 Not only the lack of historical data makes this a complex problem, but also the fact that several `external' variables (seasonality, promotions, or fashions) might influence predictions
 \cite{Lapide1999,Thomassey2012,Xia2012,SThomassey2014,ChernWSF15}.
 % Antonio - choose just a couple of references to justify this. ;)
 
 Due to the difficulty this problem represents when forecasting sales of new 
-products, some authors have proposed using different data mining methods, such as data clustering and fuzzy neural networks \cite{Chang2009} or extreme learning machine with adaptive metrics of inputs \cite{Xia2012}.
-In this line, several authors have applied the ensemble of models for sales forecasting, 
-% Antonio - briefly clarify what is an ensemble
-as it is done in \cite{ChiJie2012}, where a hybrid forecasting method integrates ensemble empirical model decomposition and extreme learning machine 
-% Antonio - learning machine or machine learning?
-% Anyway, what does it mean?
-to develop an effective forecasting model for computer products sales.
+products, some authors have proposed using different data mining methods, such as data clustering and fuzzy neural networks \cite{Chang2009} or extreme learning machine (ELM) - a feedforward neural network in which the weights are just computed once and not changed - with adaptive metrics of inputs \cite{Xia2012}.
+
+In this line, several authors have applied the \textit{ensemble} (or combination) of models for sales forecasting, as it is done in \cite{ChiJie2012}, where a hybrid forecasting method integrates ensemble empirical model decomposition and ELM to develop an effective forecasting model for computer products sales.
 Also, Meulstee et al. \cite{Meulstee2008} developed an ensemble learning approach for better handling of seasonal changes and fluctuations in consumer demands, whereas Chang et al. \cite{Chang2006715} integrated a fuzzy logic controller and an artificial neural network for sales forecasting in printed circuit board industry.
 
-Another authors have faced the problem of sales forecasting in textile-apparel 
-fashion industry (a very similar issue to the new book publishing problem) 
-using a clustering method together with decision trees, as in \cite{SThomassey2014},  or a forecasting method based on extreme machine learning with adaptive metrics of inputs \cite{Xia2012}.
+Other authors have faced the problem of sales forecasting in textile-apparel 
+fashion industry - a very similar issue to the new book publishing problem - 
+using a clustering method together with decision trees, as in \cite{SThomassey2014}, or a forecasting method based on ELM with adaptive metrics of inputs \cite{Xia2012}.
 % Antonio - comment this last paper
 
 Ching et al. \cite{ChingChin2010} used a decision-support system to classify new 
 products (tea, cosmetics and soft drink) based on their sales patterns, assuming 
 that products in the same class would follow a similar sales pattern. 
 In any case, the proposed system can not deal with qualitative data related to the products. 
-In this paper, several classification-based approaches have been implemented and tested, also considering categorical data.
+In this paper, however, several classification-based approaches have been implemented and tested, also considering categorical data.
 
 
 %Finally, in those problems where historical data are available, authors have 
@@ -205,7 +199,7 @@ amount of online reviews and historical data.
 This paper continues our previous work on the prediction of sales of a new product for which no historical data are available, and where the classical forecasting methods based on time-series are not adequate \cite{Castillo2016books}. In that paper the main factors influencing sales where 
 analyzed in order to create a tool, based on several regression methods, that the publisher can use to decide how many books should be printed.
 
-However, in this paper we address the problem of new book sales prediction using cost-sensitive ensemble methods, defining with the help of an expert different \textit{levels or ranges of sales} in order to compose different incremental categories or classes.
+However, in this paper we address the problem of new book sales prediction considering a different approach. We transform this problem into a classification one defining, with the help of an expert, different \textit{levels or ranges of sales} in order to compose different incremental categories or classes. Then we apply cost-sensitive ensemble methods in order to build effective models to determine the category (regarding sales) to which a new book would belong, yielding an useful approximation for the publisher.
 
 
 %*******************************************************************************
@@ -394,8 +388,9 @@ No. & Feature Name & Variable & Type & In/Out\\
 
 
 The output variable which is related to the total amount of sales is a categorical variable which represent the level of the quantity sold for a given book. Thus, four categories have been considered to represent these levels: \textit{Low (L)}, \textit{Medium (M)}, \textit{High (H)}, and \textit{Very High (VH)}. Table \ref{table:freq} shows the ranges of total sales that correspond to each category along with the number of sold books that fall in. The discretization of the volume of sales was conducted by an expert in the domain of editorial management business, who defined the four categories.
+% Antonio - TODO: It would be great if we could justify... At least, the expert (JJ :P) could write a sentence clarifying his decision for these ranges.
 
-Table \ref{table:freq} reveal more information about the nature of the dataset. We can notice that most of the investigated books are categorized as Low and Medium levels forming 26.8\% and 36.4\% of the dataset, respectively. High volumes of sold books that range from 300 up to 1000 are categorized as High volume of sales and form 24\% of the dataset. On the other hand, books that achieved more than 1000 sold copies are categorized as Very High and they form around 12.8\% of the dataset. Our focus in this study is to identify the more profitable categories which are High and Very High. However, since the latter category is much smaller than the other ones, we can describe our dataset as imbalanced dataset which makes the problem of identifying this category harder and more challenging.
+Table \ref{table:freq} reveal more information about the nature of the dataset. We can notice that most of the investigated books are categorized as Low and Medium levels forming 26.8\% and 36.4\% of the dataset, respectively. High volumes of sold books that range from 301 up to 1000 are categorized as High volume of sales and form 24\% of the dataset. On the other hand, books that achieved more than 1000 sold copies are categorized as Very High and they form around 12.8\% of the dataset. Our focus in this study is to identify the more profitable categories which are High and Very High. However, since the latter category is much smaller than the other ones, we can describe our dataset as imbalanced dataset which makes the problem of identifying this category harder and more challenging.
 
 
 \begin{table*}[ht]
@@ -403,14 +398,14 @@ Table \ref{table:freq} reveal more information about the nature of the dataset. 
 \centering{}%
 \begin{tabular}{|c|c|c|c|}
 \hline 
-Category & Range of total sales & Count & Ratio\tabularnewline
+Category & Range of total sales & Number of books & Ratio\tabularnewline
 \hline 
 \hline 
 Low & 0-60 & 1631 & 26.8\%\tabularnewline
 \hline 
 Medium & 61-300 & 2212 & 36.4\%\tabularnewline
 \hline 
-High & 300-1000 & 1460 & 24\%\tabularnewline
+High & 301-1000 & 1460 & 24\%\tabularnewline
 \hline 
 Very High & $>$1000 & 780 & 12.8\%\tabularnewline
 \hline 
