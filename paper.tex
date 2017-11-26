@@ -355,14 +355,38 @@ The result is the average of the generated trees during the process.
 \label{sec:cost_sensitive_classification}
 
 
-%------------------------ COST SENSITIVE LEARNING ------------------------
-\subsection{Cost sensitive learning}
-\label{subsec:cost_learning}
-
 
 %------------------------ COST SENSITIVE CLASSIFICATION ------------------------
 \subsection{Cost sensitive classification}
 \label{subsec:cost_classification}
+
+This method adjusts the classifier's prediction output by changing its probability threshold which depends on a predefined cost.  To illustrate the idea of the cost-sensitive classification, the threshold $P$ for a given case can be calculated based on a general cost matrix $C$, where $C$ can be represented as given in Equation \ref{Eq:costMatrix}.
+
+\begin{equation}
+C=\left[\begin{array}{cc}
+0 & \lambda\\
+\mu & 0
+\end{array}\right]
+\label{Eq:costMatrix}
+\end{equation}
+
+Based on the matrix $C$, the threshold $P$ can be determined using Equation \ref{Eq:costThreshold}.
+
+\begin{equation}
+P=\frac{\mu}{\mu+\lambda}
+\label{Eq:costThreshold}
+\end{equation}
+
+
+Therefore, $P$ can be used to distinguish between the two classes. If the probability classification output of the model is less than the threshold then it classifies as the minority class, otherwise it classifies as a majority class.
+
+
+%------------------------ COST SENSITIVE LEARNING ------------------------
+\subsection{Cost sensitive learning}
+\label{subsec:cost_learning}
+
+In this method, a given classification algorithm performs the learning process based on a new version of the dataset, where the instances are re-weighted internally according to some predefined costs.  
+
 
 
 %*******************************************************************************
